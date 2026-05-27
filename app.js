@@ -181,33 +181,42 @@ const App = (() => {
 
   // ===== 5分钟倒计时（锁屏不暂停 + 完成通知） =====
   let timerMeta = null; // { startTs, totalSec, step, quotes, circ, circle, text, hint, quote }
+  let audioCtx = null; // 在用户交互时初始化，避免浏览器阻止自动播放
 
   function requestNotifyPermission() {
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
+    // 在用户交互时初始化 AudioContext（浏览器要求）
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch {}
+    }
   }
 
   function notifyTimerDone() {
     // 震动
-    if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]);
-    // 系统通知（锁屏也能弹）
-    if ('Notification' in window && Notification.permission === 'granted') {
-      new Notification('🎉 5分钟到了！', {
-        body: '太棒了！你已经迈出了最难的一步',
-        icon: 'icons/icon-192.png',
-        tag: 'timer-done',
-        requireInteraction: true
-      });
-    }
-    // 页面内音效（可选）
+    try { if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]); } catch {}
+    // 系统通知
     try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, ctx.currentTime);
-      osc.connect(ctx.destination);
-      osc.start(); osc.stop(ctx.currentTime + 0.3);
+      if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('🎉 5分钟到了！', {
+          body: '太棒了！你已经迈出了最难的一步',
+          icon: 'icons/icon-192.png',
+          tag: 'timer-done',
+          requireInteraction: true
+        });
+      }
+    } catch {}
+    // 音效（使用预初始化的 audioCtx）
+    try {
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      if (audioCtx) {
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        osc.connect(audioCtx.destination);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.5);
+      }
     } catch {}
   }
 
@@ -222,16 +231,15 @@ const App = (() => {
     if (sec > 0 && sec % 60 === 0) quote.textContent = quotes[Math.floor(Math.random()*quotes.length)];
 
     if (sec <= 0) {
-      clearInterval(timerInterval); timerInterval = null; timerMeta = null;
+      clearInterval(timerInterval); timerInterval = null;
       text.textContent = '🎉';
       hint.textContent = '太棒了！5分钟到了！';
       quote.textContent = '"你已经迈出了最难的一步"';
       $('btnTimerContinue').style.display = '';
       $('btnTimerCancel').textContent = '关闭';
-      step.done = true;
-      state.pet.mood = Math.min(100, state.pet.mood+5);
-      save(); renderTask(); renderPet();
+      // 不自动标记完成，让用户自己勾选
       notifyTimerDone();
+      timerMeta = null;
     }
   }
 
