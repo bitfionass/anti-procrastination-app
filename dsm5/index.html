@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSM-5 诊断标准速查手册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            margin: 20px auto;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .nav-tab:hover, .nav-tab.active {
+            background: white;
+            color: #667eea;
+        }
+        
+        .chapter-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .chapter-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .chapter-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .disorder-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .disorder-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .disorder-name::before {
+            content: "🧠";
+            margin-right: 10px;
+        }
+        
+        .criteria-list {
+            list-style: none;
+        }
+        
+        .criteria-item {
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #764ba2;
+        }
+        
+        .criteria-letter {
+            font-weight: bold;
+            color: #667eea;
+            margin-right: 10px;
+        }
+        
+        .specifiers {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+        
+        .specifiers-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DSM-5 诊断标准速查手册</h1>
+            <p class="subtitle">基于《变态心理学》第6版整理</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">46</div>
+                    <div class="stat-label">诊断标准</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">章节分类</div>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 搜索障碍名称...">
+            </div>
+        </header>
+        
+        <div class="nav-tabs" id="navTabs">
+            <button class="nav-tab active" data-chapter="all">全部</button>
+            <button class="nav-tab" data-chapter="5">焦虑障碍</button>
+            <button class="nav-tab" data-chapter="6">躯体症状与分离障碍</button>
+            <button class="nav-tab" data-chapter="8">精神分裂症</button>
+            <button class="nav-tab" data-chapter="10">神经发育障碍</button>
+            <button class="nav-tab" data-chapter="11">第11章</button>
+            <button class="nav-tab" data-chapter="12">第12章</button>
+            <button class="nav-tab" data-chapter="15">第15章</button>
+        </div>
+        
+        <div id="content">
+
+            <div class="chapter-section" data-chapter="5">
+                <h2 class="chapter-title">第5章 焦虑障碍</h2>
+
+                <div class="disorder-card" data-name="强迫症">
+                    <div class="disorder-name">强迫症</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            具有强迫观念、强迫行为，或两者皆有。强迫观念被定义为以下（1）和（2）：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            强迫观念或强迫行为是耗时的（例如，每天消耗1小时以上）或这些症状引起具有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            强迫症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            该障碍不能用其他精神障碍的症状来更好地解释（例如，广泛性焦虑障碍中的过度担心，躯体变形障碍中的外貌先占观念，囤积障碍中的难以丢弃或放弃物品，拔毛癖[拔毛障碍]中的拔头发，抓痕[皮肤搔抓]障碍中的皮肤搔抓，刻板运动障碍中的刻板行为，进食障碍中的仪式化进食行为，物质相关及成瘾障碍中物质或赌博的先占观念，疾病焦虑障碍中患有某种疾病的先占观念，性欲倒错障碍中的性冲动或性幻想，破坏性、冲动控制及品行障碍中的冲动，抑郁症中的内疚性思维反刍，精神分裂症谱系及其他精神病性障碍中的思维插入或妄想性的先占观念，或孤独症[自闭症]谱系障碍中的重复性行为模式）。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="6">
+                <h2 class="chapter-title">第6章 躯体症状与分离障碍</h2>
+
+                <div class="disorder-card" data-name="躯体症状障碍">
+                    <div class="disorder-name">躯体症状障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            1种或多种躯体症状，使个体感到痛苦或导致其日常生活受到明显破坏。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            与躯体症状相关的极端想法、感觉或行为，或与健康相关的过度担忧，至少表现为下列一项：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            虽然任何一种躯体症状可能都不会持续存在，但有症状的状态是持续存在的（通常超过6个月）。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>主要表现为疼痛：此标注适用于那些躯体症状主要为疼痛的个体。
+持续性：以严重的症状、明显的损害和长病程（超过6个月）为特征。
+轻度（只有1项符合诊断标准B的症状）；中度（2项或更多符合诊断标准B的症状）；重度（2项或更多符合诊断标准B的症状，并且有多种躯体主诉或1项非常严重的躯体主诉）。</p>
+
+                    </div>
+
+                </div>
+
+                <div class="disorder-card" data-name="分离性身份障碍">
+                    <div class="disorder-name">分离性身份障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            存在两个或更多以截然不同的人格状态为特征的身份瓦解，这可能在某些文化中被描述为一种附体体验。身份的瓦解涉及明显的自我感和自我控制感的中断，伴随着与情感、行为、意识、记忆、感知、认知和/或感觉运动功能相关的改变。这些体征和症状可以被他人观察到或由个体自己报告。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            回忆日常事件、重要的个人信息和/或创伤事件时，存在反复的空白期，它们与普通的遗忘不一致。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            该障碍并非广泛可接受的文化或宗教习俗的一部分。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            这些症状不能归因于某种物质的直接生理效应（例如，在酒精中毒过程中的一过性黑蒙或混乱行为）或其他躯体疾病（例如，复杂部分性发作）。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="分离性遗忘症">
+                    <div class="disorder-name">分离性遗忘症</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            不能回忆起重要的、自传式的个人信息，通常具有创伤或应激性质，且与普通的健忘不一致。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            这些症状不能归因于某种物质（例如，酒精或其他滥用的毒品、药物）的生理效应或神经系统或其他躯体疾病（例如，复杂部分性发作、短暂性全面性遗忘症、闭合性头部损伤/创伤性脑损伤后遗症、其他神经系统疾病）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            该障碍不能用分离性身份障碍、创伤后应激障碍、急性应激障碍、躯体症状障碍、重度或轻度的神经认知障碍来更好地解释。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>伴分离性漫游：似乎有目的的旅行，或与遗忘身份或其他重要个人信息有关的漫无目标的游荡。</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="8">
+                <h2 class="chapter-title">第8章 精神分裂症</h2>
+
+                <div class="disorder-card" data-name="分裂情感性障碍">
+                    <div class="disorder-name">分裂情感性障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            在一个不间断的疾病周期中，有主要心境发作（抑郁症或躁狂），同时存在符合精神分裂症诊断标准A的症状。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            在此疾病的全程中，在缺少主要心境发作（抑郁或躁狂）的情况下，存在持续两周或更长时间的妄想或幻觉。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            在此疾病的活动期和残留期的整个病程的大部分时间内，存在符合主要心境发作诊断标准的诊断。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>伴紧张症</p>
+
+                    </div>
+
+                </div>
+
+                <div class="disorder-card" data-name="精神分裂症样障碍">
+                    <div class="disorder-name">精神分裂症样障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            满足精神分裂症的A、D和E标准（见表8.2）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            这种障碍的发作持续至少1个月，但少于6个月。当不能等待其痊愈就需作出诊断时，应定性为“临时”。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>伴良好的预后特征：此标注需要存在至少两项下列特征：</p>
+
+                    </div>
+
+                </div>
+
+                <div class="disorder-card" data-name="妄想障碍">
+                    <div class="disorder-name">妄想障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            存在1个或多个妄想，至少持续1个月或更长。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            从不符合精神分裂症的诊断标准A。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            除妄想或其结果的影响之外，功能没有明显损害，行为也没有明显的离奇或古怪。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            如果出现躁狂与重性抑郁发作，那么它们的持续时间相比妄想来说是短暂的。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            这种障碍不能归因于某种物质的生理效应或其他躯体疾病，且不能用其他精神障碍来更好地解释，如躯体变形障碍或强迫症。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>伴离奇的内容：如果妄想的内容显然是难以置信、不可理解的，也不是来自于平常的生活经验（例如，个体相信一个陌生人移除了其内部器官，取而代之以他人的器官，且没有留下任何伤口或疤痕），那么妄想就被视为离奇的。</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="10">
+                <h2 class="chapter-title">第10章 神经发育障碍</h2>
+
+                <div class="disorder-card" data-name="孤独症谱系障碍">
+                    <div class="disorder-name">孤独症谱系障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            在多种场所下，社会交往和社交互动方面存在持续性的缺陷，表现为目前或历史中的下列情况（以下为示范性举例，而非详尽列举；见DSM-5正文）：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            受限的、重复的行为模式、兴趣或活动，表现为目前或历史上的至少下列2项情况（以下例子为示范性举例，而非全部列举；见DSM-5正文）：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            症状必须存在于发育早期（但是，直到社交需求超过有限的能力时，缺陷可能才会完全表现出来，或可能被后天学会的策略所掩盖）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            这些症状造成社交、职业或目前其他重要功能方面的有明显临床意义的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            这些症状不能用智力障碍或全面发育迟缓来更好地解释。智力障碍和孤独症谱系障碍经常共同出现；做出孤独症谱系障碍和智力障碍的合并诊断时，其社会交往（标准A）必须低于预期的总体发育水平。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="特定学习障碍">
+                    <div class="disorder-name">特定学习障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            学习和使用学业技能的困难，如存在至少1项下列所示的症状，且持续至少6个月，尽管针对这些困难提供了干预措施：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            受到影响的学业技能明显地、可量化地低于个体生理年龄的预期水平，明显地干扰了学业或职业表现或日常活动。技能损伤由单独进行的标准化成就测评和综合临床评估确认。对于17岁及以上的个体，关于损害性学习困难的病史记载可以代替标准化测评。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            学习方面的困难开始于学龄期，但直到对那些受影响的学业技能的要求超过个体的有限能力时，才会完全表现出来（例如，在限时测验中，读或写冗长、复杂的报告并有严格的截止日期，过于沉重的学业负担）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            学习困难不能用智力障碍、未校正的视力或听力，其他精神或神经病性障碍、心理社会的逆境、对学业指导所用的语言不熟练，或不充分的教育指导来更好地解释。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="11">
+                <h2 class="chapter-title">第11章 第11章</h2>
+
+                <div class="disorder-card" data-name="品行障碍">
+                    <div class="disorder-name">品行障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            一种侵犯他人的基本权利或违反与年龄匹配的主要社会规范或规则的反复的、持续的行为模式，在过去的12个月内，表现为下列任意类别的15项标准中的至少3项，且在过去的6个月内存在下列标准中的至少1项：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            此行为障碍在社交、学业或职业功能方面引起有临床意义的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            如果个体的年龄为18岁或以上，则需不符合反社会型人格障碍的诊断标准。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="反社会型人格障碍">
+                    <div class="disorder-name">反社会型人格障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            一种无视和侵犯他人权利的普遍模式，始于15岁，表现为下列三项（或更多）症状：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            个体至少18岁。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            有证据表明品行障碍始于15岁前。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            反社会行为并不仅仅出现在精神分裂症或双相障碍的病程内。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="12">
+                <h2 class="chapter-title">第12章 第12章</h2>
+
+                <div class="disorder-card" data-name="神经性厌食症">
+                    <div class="disorder-name">神经性厌食症</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            相对于需求而言，在年龄、性别、发育轨迹和身体健康的背景下，出现了因限制能量的摄取而导致明显的低体重。明显的低体重被定义为低于正常体重的最低值或低于儿童和青少年的最低预期值。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            即使处于显著的低体重，仍然强烈害怕体重增加或变胖，或有持续的影响体重增加的行为。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            对自己的体重或体型的体验障碍，体重或体型对自我评价的不当影响，或持续地缺乏对目前低体重的严重性的认识。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="神经性贪食症">
+                    <div class="disorder-name">神经性贪食症</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            反复发作的暴食。暴食发作以下列2项为特征：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            反复出现不恰当的代偿行为以预防体重增加，例如自我引吐，滥用泻药、利尿剂或其他药物，禁食或过度锻炼。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            暴食和不恰当的代偿行为同时出现，并且出现频率维持在3个月内平均每周至少1次。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            自我评价受到身体体型和体重的过度影响。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            该障碍并非仅仅出现在神经性厌食症的发作期。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="15">
+                <h2 class="chapter-title">第15章 第15章</h2>
+
+                <div class="disorder-card" data-name="嗜睡障碍">
+                    <div class="disorder-name">嗜睡障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            尽管主要睡眠周期持续至少7小时，依然自我报告过度困倦（嗜睡），至少有下列1项症状:
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            嗜睡每周至少出现3次，持续至少3个月。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            嗜睡伴有显著的痛苦，或导致认知、社交、职业或其他重要功能的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            嗜睡不能更好地用另一种睡眠障碍来解释，也不仅仅出现在另一种睡眠障碍的病程中（例如，发作性睡病、与呼吸相关的睡眠障碍、昼夜节律睡眠–觉醒障碍或睡眠异态）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            嗜睡不能归因于某种物质的生理效应（例如，滥用的毒品、药物）
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">F.</span>
+                            共存的精神障碍和躯体状况不能充分解释嗜睡的主诉。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="昼夜节律睡眠-觉醒障碍">
+                    <div class="disorder-name">昼夜节律睡眠-觉醒障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            一种持久或反复发作的睡眠中断模式，主要是由于昼夜节律系统的改变，或者是内源性昼夜节律与个体的物理环境或社交或职业时间表所要求的睡眠–觉醒周期之间的错位。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            睡眠中断导致过度的睡意或失眠，或两者兼有。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            睡眠紊乱引起有临床意义的痛苦，或导致社交、职业或其他重要功能的损害。
+                        </li>
+
+                    </ul>
+
+                    <div class="specifiers">
+                        <div class="specifiers-title">标注说明：</div>
+                        <p>家族型：存在睡眠时相延迟的家族史。
+标注如果是：
+与非24小时睡眠–觉醒重叠型：睡眠时相延迟型可能与另一种昼夜节律睡眠–觉醒障碍——非24小时睡眠–觉醒障碍——重叠。
+睡眠时相提前型：一种睡眠起始和觉醒时间提前的模式，且不能保持觉醒或睡眠到期望的或常规可接受的较晚的入睡或觉醒时间。
+标注如果是：
+家族型：存在睡眠时相提前的家族史。
+睡眠–觉醒不规则型：一种暂时混乱的睡眠–觉醒模式，以致睡眠和觉醒的时段可在24小时周期内的任何时间改变。
+非24小时睡眠–觉醒型：一种睡眠–觉醒周期与24小时的环境不同步的模式，伴持续的每日睡眠起始和觉醒时间的漂移（通常为越来越晚）。
+倒班工作型：与倒班工作时间表（即要求非常规的工作时间）相关的，在主要的睡眠时段失眠和/或在主要觉醒时段过度有睡意（包括无意的睡眠）。
+未特定型
+标注如果是：
+间歇性：症状持续至少1个月，但少于3个月。
+持续性：症状持续3个月或更长。
+复发性：1年内发作2次或更多。</p>
+
+                    </div>
+
+                </div>
+
+                <div class="disorder-card" data-name="非快速眼动睡眠唤醒障碍">
+                    <div class="disorder-name">非快速眼动睡眠唤醒障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            反复发作的从睡眠中不完全觉醒，通常出现在主要睡眠周期的前三分之一，并伴有下列任一项症状：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            没有或很少（例如，只有一个视觉场景）有梦境能被回忆起来。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            存在对发作的遗忘。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            此发作引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">F.</span>
+                            共存的精神或躯体障碍不能解释睡行或睡惊的出现。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="快速眼动睡眠行为障碍">
+                    <div class="disorder-name">快速眼动睡眠行为障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            睡眠中反复发作的与发声和/或复杂的运动行为有关的唤醒。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            这些行为在快速眼动睡眠期出现，因此通常出现在睡眠开始超过90分钟以后，且在睡眠时间的后期更频繁，在白天打盹时不常出现。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            一旦从这些发作中觉醒，个体会完全清醒、警觉，而不是意识模糊或失去定向。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            下列任1项表现：
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            此行为引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害（可能包括伤害自己或同睡一床的人）。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">F.</span>
+                            该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体状况。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">G.</span>
+                            共存的精神和躯体障碍不能解释此发作。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="disorder-card" data-name="梦魇障碍">
+                    <div class="disorder-name">梦魇障碍</div>
+                    <ul class="criteria-list">
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">A.</span>
+                            反复出现延长的、极端烦躁和能够详细记忆的梦，通常涉及努力避免对生存、安全和躯体完整性的威胁，且一般发生在主要睡眠期的后半程。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">B.</span>
+                            从烦躁的睡梦中觉醒，个体能够很快恢复定向和警觉。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">C.</span>
+                            该睡眠障碍引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">D.</span>
+                            梦魇症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。
+                        </li>
+
+                        <li class="criteria-item">
+                            <span class="criteria-letter">E.</span>
+                            共存的精神和躯体障碍不能充分解释烦躁梦境的主诉。
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+        <footer>
+            <p>资料来源：《变态心理学》第6版（DSM-5更新版）</p>
+            <p>仅供学习参考，临床诊断请以官方DSM-5手册为准</p>
+            <p>生成时间：2026年05月27日</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.disorder-card');
+            
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                if (name.includes(searchTerm) || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // 章节筛选
+        const navTabs = document.querySelectorAll('.nav-tab');
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 更新活动状态
+                navTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const chapter = this.dataset.chapter;
+                const sections = document.querySelectorAll('.chapter-section');
+                
+                sections.forEach(section => {
+                    if (chapter === 'all' || section.dataset.chapter === chapter) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
