@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>心理诊断侦探局｜案例卡</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#172033; --muted:#667085; --line:#d9e2ef;
+  --blue:#2563eb; --blue2:#0f4cbf; --cyan:#e8f4ff; --green:#0f766e; --amber:#b45309; --red:#b42318;
+  --shadow:0 14px 35px rgba(16,24,40,.10); --radius:22px;
+}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#eaf3ff 0,#f6f8fb 28%,#f6f8fb 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif;line-height:1.62}
+header{position:sticky;top:0;z-index:10;background:rgba(246,248,251,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(217,226,239,.8);padding:14px 16px 10px}
+.kicker{font-size:12px;color:var(--blue2);font-weight:800;letter-spacing:.08em}.title{font-size:22px;font-weight:900;margin:2px 0 4px}.sub{font-size:13px;color:var(--muted)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 14px 88px}.notice{background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px 14px;margin:10px 0 14px;box-shadow:0 6px 18px rgba(16,24,40,.06)}
+.notice b{color:var(--blue2)}.selector{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.caseBtn{border:1px solid #cdd8ea;background:#fff;border-radius:16px;padding:12px 10px;min-height:48px;font-size:15px;font-weight:800;color:#27364f;box-shadow:0 3px 8px rgba(16,24,40,.04)}
+.caseBtn.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 8px 18px rgba(37,99,235,.28)}
+.card{display:none;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(217,226,239,.9);overflow:hidden;margin-top:14px}.card.active{display:block}.caseHead{padding:18px 18px 14px;background:linear-gradient(135deg,#1d4ed8,#0f766e);color:#fff}.caseTag{font-size:12px;font-weight:900;letter-spacing:.10em;opacity:.86}.caseTitle{font-size:21px;font-weight:900;line-height:1.25;margin-top:6px}.caseBody{padding:17px 18px 6px}.story{font-size:16px}.block{border-top:1px solid var(--line);padding:14px 0}.block h3{font-size:15px;margin:0 0 8px;color:#0f4cbf}.block ul{margin:0;padding-left:20px}.block li{margin:7px 0}.risk{background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:11px 13px;color:#7c2d12;margin:12px 0}.actions{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;justify-content:center}.actions a,.actions button{max-width:360px;flex:1;border:0;border-radius:14px;padding:12px 10px;font-size:15px;font-weight:900;text-align:center;text-decoration:none}.primary{background:var(--blue);color:#fff}.secondary{background:#e8eef8;color:#24415f}.mini{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+@media(min-width:640px){.selector{grid-template-columns:repeat(4,1fr)}.title{font-size:28px}.caseTitle{font-size:25px}.story{font-size:17px}}
+@media print{header,.selector,.actions,.notice{display:none}.wrap{padding:0}.card{display:block;box-shadow:none;page-break-after:always}.caseHead{color:#000;background:#fff;border-bottom:2px solid #000}}
+</style>
+</head>
+<body>
+<header><div class="kicker">W16 ABNORMAL PSYCHOLOGY</div><div class="title">心理诊断侦探局｜案例卡</div><div class="sub">手机端阅读版：选择你的案例 → 阅读线索 → 填写小组诊断推理表</div></header>
+<main class="wrap">
+<section class="notice"><b>课堂规则：</b>先找证据，再提假设。不要把单个症状直接等同于诊断；本活动是课堂诊断推理训练，不是临床诊断。</section>
+<div class="selector" id="selector"></div>
+<div id="cards"></div>
+<p class="mini">提示：教师可把本HTML文件发到班级群；学生用手机浏览器打开即可。</p>
+</main>
+<nav class="actions"><button class="secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">回到选择</button><a class="primary" href="https://icn05rk2fwpf.feishu.cn/base/ZhKVbPPikaX28rssOtscrKNCnrd?table=tbl9v2noufZ1dbqW&view=vewGomSl0K" target="_blank">填写小组表</a></nav>
+<script>
+const cases=[
+{id:'A',title:'他是真的“想不开”，还是一段心境发作？',story:'一名34岁的银行职员，近几个月因单位改革和家庭琐事逐渐出现明显变化：夜不能寐，情绪特别低落，做什么都没兴趣，食欲下降，体重明显减轻。每天早晨醒来后尤其难受，觉得活着太痛苦。三天前，他突然离家出走，在外地投河自杀，被人救起后送医。家属说，他此前已经在家中服用安眠药自杀过一次，被及时发现后抢救脱险。追溯病史，十年前读大学时，他也曾出现长时间失眠、情绪低落、不愿与人交往，并因此休学一年，后来未经系统治疗逐渐恢复。',clues:['情绪低落、兴趣下降、睡眠/食欲变化、体重下降','自杀行为与再次自杀风险','既往类似长时间发作史'],diff:['抑郁障碍','适应障碍','双相障碍中的抑郁发作'],ask:['是否曾有躁狂/轻躁狂？','症状持续多久？','功能受损到什么程度？']},
+{id:'B',title:'快要死的感觉，为什么检查又没问题？',story:'某人第一次发作发生在一次高强度工作之后。那天他喝了很多咖啡，没有吃晚饭，晚上坐出租车赶去朋友家。路上堵车，他越来越紧张，开始发热、头晕、呼吸困难。到朋友家后，他突然全身冒汗、胸闷、心慌，觉得自己“快要死了”，怀疑心脏病发作，于是赶到医院。检查和心电图没有发现明显问题。医生解释后，他稍微放心了几天，但之后类似发作反复出现。虽然他不断告诉自己“这不是心脏病”，仍然害怕再次经历那种感觉，逐渐不敢坐车。',clues:['突发强烈躯体焦虑与濒死感','检查未见明显问题但反复担心再发','逐渐回避坐车'],diff:['惊恐障碍','广泛性焦虑','特定恐怖','心脏问题或咖啡因/物质影响'],ask:['发作是否突然达到高峰？','是否持续担心再发？','回避是否围绕发作形成？']},
+{id:'C',title:'洗手和“您好”仪式，是迷信、洁癖，还是强迫？',story:'一名学生说自己有两类困扰：一是总担心被细菌污染，所以必须反复洗手；二是担心家中某个人死亡，因此不能看可能引发这种担忧的文章或电视。一旦出现担忧，脑子里会充满关于死亡的可怕念头。为了缓解这种焦虑，他必须在脑中按顺序想到每一个喜欢的人，同时说“您好”。如果没有这样做，或者顺序错了，他就无法摆脱忧虑。他知道这些想法和行为听起来荒唐，自己也觉得不合理，但就是控制不住。',clues:['侵入性想法与污染/死亡担忧','反复洗手和心理仪式','知道不合理但难以控制'],diff:['强迫症','广泛性焦虑','特定恐怖','迷信行为','精神病性妄想'],ask:['行为是否为降低焦虑？','是否耗时或影响功能？','是否保留现实检验能力？']},
+{id:'D',title:'情绪高涨、花钱、少睡，是变开朗了还是躁狂？',story:'李女士，27岁，三年前本科毕业前因失恋出现一段明显抑郁状态：整个学期情绪低落，毕业论文答辩几乎无法完成，非常绝望，甚至企图自杀，治疗后逐渐恢复。最近半个月，她情绪突然高涨，无心工作，四处逛街购物，刷信用卡挥霍，穿着格外夸张。她在餐厅因小事与服务员激烈争吵，凌晨起床大唱卡拉OK，严重影响邻居。周围人觉得她和平时很不一样，并最终将她送医。',clues:['情绪高涨、活动增多、冲动消费','睡眠减少/凌晨扰民、易激惹','既往明显抑郁史'],diff:['双相障碍','重性抑郁障碍','边缘型人格障碍','物质诱发状态'],ask:['是否睡得少仍精力旺盛？','持续时间和功能损害如何？','是否有物质使用？']},
+{id:'E',title:'别人都在议论我，还有电波控制我',story:'某男，30岁，工人。一年前开始无明显诱因地怀疑同事都在议论他、责怪他、迫害他。工作逐渐散漫，经常迟到、旷工，干活出错。他说别人吐痰、咳嗽都是针对自己；还说有人用电波发射器控制他、迫害他，甚至知道他心里想的事。他常听见班长的声音说：“他太差劲了，咱们教训教训他！”有一天夜里两点，他突然喊“敌人把我们的住宅都包围了”，跑到邻居院子里躲藏。他曾说自己活不成了，也说过自己是孔夫子，负有挽救世界的使命。',clues:['被害/关系/被控制体验','幻听与夸大信念','工作和生活功能下降'],diff:['精神分裂症谱系障碍','物质诱发精神病性障碍','双相障碍伴精神病性症状','创伤相关反应'],ask:['症状持续多久？','是否伴明显情绪发作？','是否有物质或躯体因素？']},
+{id:'F',title:'不能行走，但检查没有发现异常',story:'某女，32岁，乡村干部。两年半前，她在工作压力和外界议论下主动做了绝育手术。手术过程顺利，但术中听到医生说了一句“夹断了”，术后便觉得全身无力、双下肢沉重，难以行走，并有麻木感。之后右腿曾逐渐好转，左腿仍拖行。半年后，她听一位医生说“半年不下床活动，好腿也会瘫的”，于是右腿也逐渐沉重、麻木，最终卧床。多次体检和精神检查未发现能够解释症状的异常。',clues:['运动/感觉症状与医学检查不一致','心理压力和暗示线索','不能简单归为装病'],diff:['转换障碍','躯体症状障碍','疾病焦虑障碍','神经系统疾病','做作性障碍/诈病'],ask:['排除躯体疾病是否充分？','是否存在外部获益？','症状与医学发现如何不一致？']},
+{id:'G',title:'她到底是“性格不好”，还是人格障碍？',story:'某女，29岁，已婚，反复出现阵发性暴怒、哭闹、撕衣、毁物、狂奔等表现多年。首次明显发作前，她刚生育不久，感到无人探视、委屈伤心；同时又收到工厂解雇通知。她先沉默凝视，随后突然大哭、狂呼乱叫、冲出房间，捶胸顿足、撕扯衣服、撞墙。之后类似发作多次出现，常与争吵、受委屈或人际冲突有关。平时她能说会道，喜欢在人际场合中扮演重要角色，也常因爱管闲事而引发矛盾。',clues:['情绪爆发与人际冲突诱发','表达方式戏剧化、反复发作','体检及精神检查未见明显异常'],diff:['分离/转换相关问题','边缘型人格障碍','双相障碍','创伤相关障碍','物质影响'],ask:['模式是否长期稳定并跨情境？','是否有人格功能受损？','是否存在躁狂发作证据？']},
+{id:'H',title:'瘦下来之后，她为什么停不下来？',story:'一名19岁女生，身高约1.67米，一年内体重从约56.7公斤降到约47.6公斤。起初是因为一场流感体重下降，朋友们称赞她变瘦了。之后她开始有意继续减肥，每天大幅减少摄入，尽量少吃碳水，并坚持跑步。她经常感到很饿，学习也难以集中，但非常看重自己纤瘦的样子，害怕再次发胖。即使体重已经明显下降，她仍想再减几斤，以便能穿更小号的衣服。',clues:['显著体重下降与限制进食','害怕发胖、体像/体重过度关注','饥饿和学习受影响'],diff:['神经性厌食','神经性贪食','暴食障碍','躯体疾病导致体重下降','抑郁障碍'],ask:['BMI和身体风险如何？','是否有暴食或清除行为？','月经/身体指标是否异常？']}
+];
+const selector=document.getElementById('selector'), cards=document.getElementById('cards');
+function list(items){return '<ul>'+items.map(x=>`<li>${x}</li>`).join('')+'</ul>'}
+cases.forEach((c,i)=>{selector.insertAdjacentHTML('beforeend',`<button class="caseBtn ${i===0?'active':''}" data-id="${c.id}">案例${c.id}</button>`);cards.insertAdjacentHTML('beforeend',`<article class="card ${i===0?'active':''}" id="case-${c.id}"><div class="caseHead"><div class="caseTag">CASE ${c.id}</div><div class="caseTitle">${c.title}</div></div><div class="caseBody"><p class="story">${c.story}</p><div class="risk">请先独立圈线索，再和小组讨论。不要马上搜索诊断答案。</div><div class="block"><h3>核心线索</h3>${list(c.clues)}</div><div class="block"><h3>鉴别方向</h3>${list(c.diff)}</div><div class="block"><h3>关键追问</h3>${list(c.ask)}</div></div></article>`)});
+selector.addEventListener('click',e=>{const b=e.target.closest('.caseBtn'); if(!b)return; document.querySelectorAll('.caseBtn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.card').forEach(x=>x.classList.remove('active')); document.getElementById('case-'+b.dataset.id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); localStorage.setItem('detectiveCase',b.dataset.id)});
+const saved=localStorage.getItem('detectiveCase'); if(saved){document.querySelector(`[data-id="${saved}"]`)?.click()}
+</script>
+</body>
+</html>
