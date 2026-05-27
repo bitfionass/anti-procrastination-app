@@ -3,7 +3,7 @@
  */
 const App = (() => {
   const STORAGE_KEY = 'pb_data_v2';
-  let state, timerInterval;
+  let state, timerInterval, timerStartTime, timerTotalSec = 300;
 
   // ===== 数据层 =====
   function load() {
@@ -179,15 +179,72 @@ const App = (() => {
     renderPet(); renderBadges(); renderStats(); renderHistory();
   }
 
-  // ===== 5分钟倒计时 =====
+  // ===== 5分钟倒计时（锁屏不暂停 + 完成通知） =====
+  let timerMeta = null; // { startTs, totalSec, step, quotes, circ, circle, text, hint, quote }
+
+  function requestNotifyPermission() {
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+  }
+
+  function notifyTimerDone() {
+    // 震动
+    if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]);
+    // 系统通知（锁屏也能弹）
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('🎉 5分钟到了！', {
+        body: '太棒了！你已经迈出了最难的一步',
+        icon: 'icons/icon-192.png',
+        tag: 'timer-done',
+        requireInteraction: true
+      });
+    }
+    // 页面内音效（可选）
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, ctx.currentTime);
+      osc.connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.3);
+    } catch {}
+  }
+
+  function tickTimer() {
+    if (!timerMeta) return;
+    const { startTs, totalSec, step, quotes, circ, circle, text, hint, quote } = timerMeta;
+    const elapsed = Math.floor((Date.now() - startTs) / 1000);
+    const sec = Math.max(0, totalSec - elapsed);
+
+    text.textContent = `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
+    circle.style.strokeDashoffset = circ * (1 - sec / totalSec);
+    if (sec > 0 && sec % 60 === 0) quote.textContent = quotes[Math.floor(Math.random()*quotes.length)];
+
+    if (sec <= 0) {
+      clearInterval(timerInterval); timerInterval = null; timerMeta = null;
+      text.textContent = '🎉';
+      hint.textContent = '太棒了！5分钟到了！';
+      quote.textContent = '"你已经迈出了最难的一步"';
+      $('btnTimerContinue').style.display = '';
+      $('btnTimerCancel').textContent = '关闭';
+      step.done = true;
+      state.pet.mood = Math.min(100, state.pet.mood+5);
+      save(); renderTask(); renderPet();
+      notifyTimerDone();
+    }
+  }
+
   function startTimer() {
     const task = currentTask();
     if (!task) return;
     const step = task.steps.find(s=>!s.done);
     if (!step) return;
 
+    // 请求通知权限
+    requestNotifyPermission();
+
     openOverlay('timerModal');
-    let sec = 300;
     const circ = 2*Math.PI*90;
     const circle = $('timerCircle');
     const text = $('timerText');
@@ -203,26 +260,13 @@ const App = (() => {
     $('btnTimerContinue').style.display = 'none';
     $('btnTimerCancel').textContent = '放弃';
 
-    timerInterval = setInterval(() => {
-      sec--;
-      text.textContent = `${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`;
-      circle.style.strokeDashoffset = circ*(1-sec/300);
-      if (sec%60===0 && sec>0) quote.textContent = quotes[Math.floor(Math.random()*quotes.length)];
-      if (sec<=0) {
-        clearInterval(timerInterval); timerInterval = null;
-        text.textContent = '🎉';
-        hint.textContent = '太棒了！5分钟到了！';
-        quote.textContent = '"你已经迈出了最难的一步"';
-        $('btnTimerContinue').style.display = '';
-        $('btnTimerCancel').textContent = '关闭';
-        step.done = true;
-        state.pet.mood = Math.min(100, state.pet.mood+5);
-        save(); renderTask(); renderPet();
-      }
-    }, 1000);
+    timerMeta = { startTs: Date.now(), totalSec: 300, step, quotes, circ, circle, text, hint, quote };
+    timerInterval = setInterval(tickTimer, 1000);
   }
+
   function cancelTimer() {
     if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+    timerMeta = null;
     closeOverlay('timerModal');
   }
   function continueTimer() {
@@ -230,6 +274,11 @@ const App = (() => {
     const task = currentTask();
     if (task && task.steps.every(s=>s.done)) completeTask(task);
   }
+
+  // 页面重新可见时，立即刷新倒计时（解决锁屏暂停问题）
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && timerMeta) tickTimer();
+  });
 
   // ===== 编辑步骤 =====
   function openEdit() {
