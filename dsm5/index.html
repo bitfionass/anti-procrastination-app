@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSM-5 诊断标准速查手册</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
@@ -19,12 +14,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
+        .container { max-width: 1200px; margin: 0 auto; }
         header {
             text-align: center;
             color: white;
@@ -34,24 +24,9 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
         }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .search-box {
-            margin: 20px auto;
-            max-width: 500px;
-            position: relative;
-        }
-        
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .search-box { margin: 20px auto; max-width: 500px; }
         .search-box input {
             width: 100%;
             padding: 15px 20px;
@@ -61,15 +36,7 @@
             outline: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
+        .nav-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
         .nav-tab {
             padding: 10px 20px;
             background: rgba(255,255,255,0.2);
@@ -80,25 +47,14 @@
             font-size: 14px;
             transition: all 0.3s;
         }
-        
-        .nav-tab:hover, .nav-tab.active {
-            background: white;
-            color: #667eea;
-        }
-        
+        .nav-tab:hover, .nav-tab.active { background: white; color: #667eea; }
         .chapter-section {
             background: white;
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
-        
-        .chapter-section:hover {
-            transform: translateY(-5px);
-        }
-        
         .chapter-title {
             font-size: 1.5em;
             color: #667eea;
@@ -106,7 +62,6 @@
             padding-bottom: 10px;
             border-bottom: 2px solid #eee;
         }
-        
         .disorder-card {
             background: #f8f9fa;
             border-radius: 10px;
@@ -114,25 +69,13 @@
             margin-bottom: 15px;
             border-left: 4px solid #667eea;
         }
-        
         .disorder-name {
             font-size: 1.2em;
             font-weight: bold;
             color: #333;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
         }
-        
-        .disorder-name::before {
-            content: "🧠";
-            margin-right: 10px;
-        }
-        
-        .criteria-list {
-            list-style: none;
-        }
-        
+        .criteria-list { list-style: none; }
         .criteria-item {
             margin-bottom: 10px;
             padding: 10px 15px;
@@ -140,13 +83,7 @@
             border-radius: 8px;
             border-left: 3px solid #764ba2;
         }
-        
-        .criteria-letter {
-            font-weight: bold;
-            color: #667eea;
-            margin-right: 10px;
-        }
-        
+        .criteria-letter { font-weight: bold; color: #667eea; margin-right: 10px; }
         .specifiers {
             margin-top: 15px;
             padding: 15px;
@@ -154,61 +91,15 @@
             border-radius: 8px;
             font-size: 0.9em;
         }
-        
-        .specifiers-title {
-            font-weight: bold;
-            color: #856404;
-            margin-bottom: 5px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            color: white;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-        
-        footer {
-            text-align: center;
-            color: white;
-            margin-top: 30px;
-            padding: 20px;
-            opacity: 0.8;
-        }
-        
+        .specifiers-title { font-weight: bold; color: #856404; margin-bottom: 5px; }
+        .stats { display: flex; justify-content: center; gap: 30px; margin: 20px 0; color: white; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2em; font-weight: bold; }
+        .stat-label { font-size: 0.9em; opacity: 0.9; }
+        footer { text-align: center; color: white; margin-top: 30px; padding: 20px; opacity: 0.8; }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        .hidden {
-            display: none;
+            h1 { font-size: 1.8em; }
+            .stats { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -216,19 +107,17 @@
     <div class="container">
         <header>
             <h1>DSM-5 诊断标准速查手册</h1>
-            <p class="subtitle">基于《变态心理学》第6版整理</p>
-            
+            <p class="subtitle">基于《变态心理学》第6版（DSM-5更新版）整理</p>
             <div class="stats">
                 <div class="stat-item">
                     <div class="stat-number">46</div>
                     <div class="stat-label">诊断标准</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">7</div>
+                    <div class="stat-number">10</div>
                     <div class="stat-label">章节分类</div>
                 </div>
             </div>
-            
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="🔍 搜索障碍名称...">
             </div>
@@ -236,633 +125,1003 @@
         
         <div class="nav-tabs" id="navTabs">
             <button class="nav-tab active" data-chapter="all">全部</button>
-            <button class="nav-tab" data-chapter="5">焦虑障碍</button>
-            <button class="nav-tab" data-chapter="6">躯体症状与分离障碍</button>
-            <button class="nav-tab" data-chapter="8">精神分裂症</button>
-            <button class="nav-tab" data-chapter="10">神经发育障碍</button>
-            <button class="nav-tab" data-chapter="11">第11章</button>
-            <button class="nav-tab" data-chapter="12">第12章</button>
-            <button class="nav-tab" data-chapter="15">第15章</button>
+            <button class="nav-tab" data-chapter="3">评估与诊断</button>
+            <button class="nav-tab" data-chapter="5">焦虑、强迫及相关障碍</button>
+            <button class="nav-tab" data-chapter="6">躯体症状障碍和分离障碍</button>
+            <button class="nav-tab" data-chapter="8">精神分裂症谱系及其他精神病性障碍</button>
+            <button class="nav-tab" data-chapter="10">神经发育障碍与神经认知障碍</button>
+            <button class="nav-tab" data-chapter="11">破坏性、冲动控制及品行障碍</button>
+            <button class="nav-tab" data-chapter="12">进食障碍</button>
+            <button class="nav-tab" data-chapter="13">性障碍</button>
+            <button class="nav-tab" data-chapter="14">物质使用和赌博障碍</button>
+            <button class="nav-tab" data-chapter="15">健康心理学</button>
         </div>
         
         <div id="content">
 
+            <div class="chapter-section" data-chapter="3">
+                <h2 class="chapter-title">第3章 评估与诊断</h2>
+
+                <div class="disorder-card" data-name="惊恐障碍">
+                    <div class="disorder-name">惊恐障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复出现不可预期的惊恐发作，惊恐发作定义为突然发生的强烈的害怕或不适感，并在几分钟内达到峰值，发作期间出现下列4项及以上症状。（注：这种突然发生的惊恐可以出现在平静状态或焦虑状态。）</div>
+<div class="criteria-item" style="margin-left:20px;">1. 心悸、心慌或心率加速</div>
+<div class="criteria-item" style="margin-left:20px;">2. 出汗</div>
+<div class="criteria-item" style="margin-left:20px;">3. 震颤或发抖</div>
+<div class="criteria-item" style="margin-left:20px;">4. 气短或窒息感</div>
+<div class="criteria-item" style="margin-left:20px;">5. 哽噎感</div>
+<div class="criteria-item" style="margin-left:20px;">6. 胸痛或胸部不适</div>
+<div class="criteria-item" style="margin-left:20px;">7. 恶心或腹部不适</div>
+<div class="criteria-item" style="margin-left:20px;">8. 感到头昏、脚步不稳、头重脚轻或昏厥</div>
+<div class="criteria-item" style="margin-left:20px;">9. 发冷或发热感</div>
+<div class="criteria-item" style="margin-left:20px;">10. 皮肤感觉异常（麻木或针刺感）</div>
+<div class="criteria-item" style="margin-left:20px;">11. 现实解体（感觉不真实）或人格解体（感觉与自我脱离）</div>
+<div class="criteria-item" style="margin-left:20px;">12. 害怕失去控制或“发疯”</div>
+<div class="criteria-item" style="margin-left:20px;">13. 濒死感</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>至少在1次发作之后，至少出现下列1-2种症状，并持续1个月或以上：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 持续地担忧或担心再次的惊恐发作或其结果（例如，失去控制，心脏病发作，“发疯”）</div>
+<div class="criteria-item" style="margin-left:20px;">2. 在与惊恐发作相关的行为方面出现明显的不良变化（例如，设计某些行为以回避惊恐发作，如逃避锻炼或不熟悉的情境）</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种障碍不能归因为某种物质（例如，滥用的毒品、药物）的直接生理效应或其他躯体疾病（如甲状腺功能亢进、心肺疾病）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种障碍不能用其他精神障碍更好地解释（例如，在社交焦虑障碍中，惊恐发作的出现不只是对害怕的社会情境的反应；在特定恐怖症中，惊恐发作的出现不只是对有限的恐怖对象或情境的反应；在强迫症中，惊恐发作的出现不只是对强迫思维的反应；在创伤后应激障碍中，惊恐发作的出现不只是对创伤事件的提示物的反应；在或分离焦虑障碍中，惊恐发作的出现不只是对与依恋对象分离的反应）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
+                </div>
+
+            </div>
+
             <div class="chapter-section" data-chapter="5">
-                <h2 class="chapter-title">第5章 焦虑障碍</h2>
+                <h2 class="chapter-title">第5章 焦虑、强迫及相关障碍</h2>
+
+                <div class="disorder-card" data-name="特定恐怖症">
+                    <div class="disorder-name">特定恐怖症</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>对于特定的事物或情境（例如，飞行、高处、动物、接受注射、看见血液）产生明显的害怕或焦虑。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>恐惧的事物或情境几乎总是能够立即诱发害怕或焦虑。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>主动回避恐惧的事物或情境，或者带着强烈的害怕或焦虑去忍受。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种害怕或焦虑与特定事物或情境所引发的实际危险以及所处的社会文化环境不相称。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种害怕、焦虑或回避通常持续至少6个月。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种害怕、焦虑或回避引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>这种障碍不能用其他精神障碍的症状来更好地解释，包括与下列这些情况相联系的害怕、焦虑和回避：惊恐样症状或（如广场恐怖症中的）其他功能丧失症状；（如强迫症中的）与强迫思维有关的事物或情境；（如创伤后应激障碍中的）与创伤性事件相关的提示物；（如分离焦虑障碍中的）离家或离开依恋者；（如社交焦虑障碍中的）社交情境。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">根据恐惧刺激源编码：</div>
+<div class="criteria-item" style="margin-left:20px;">300.29（F40.218）动物型（例如，蜘蛛、昆虫、狗）。</div>
+<div class="criteria-item" style="margin-left:20px;">300.29（F40.228）自然环境型（例如，高处、暴风雨、水）。</div>
+<div class="criteria-item" style="margin-left:20px;">300.29（F40.23x）血液–注射–损伤型（例如，针头、侵入性医疗操作）。</div>
+<div class="specifiers"><p>编码备注：选择具体的ICD-10-CM编码如下：F40.230害怕血液；F40.231害怕注射和输液；F40.232害怕其他医疗服务；300.29（F40.233）害怕受伤。</p></div>
+<div class="criteria-item" style="margin-left:20px;">300.29（F40.248）情境型（例如，飞机、电梯、封闭空间）。</div>
+<div class="criteria-item" style="margin-left:20px;">300.29（F40.298）其他（例如，可能导致哽噎或呕吐的情况；儿童则可能表现为对巨响或化妆人物的恐惧）。</div>
+<div class="specifiers"><p>编码备注：当存在超过一种恐惧刺激源时，需要列出所有适合的ICD-10-CM编码（例如，害怕蛇和飞行，其编码为F40.218特定恐怖症，动物型和F40.248特定恐怖症，情境型）。</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders , Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="创伤后应激障碍">
+                    <div class="disorder-name">创伤后应激障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>以下述1种（或多种）方式接触于实际的或被威胁的死亡、严重的伤害或性暴力：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 直接经历创伤性事件。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 亲眼目睹发生在他人身上的创伤性事件。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 获悉亲密的家庭成员或朋友身上发生了创伤性事件。在实际的或被威胁死亡的案例中，创伤性事件必须是暴力的或意外的。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 反复经历或极端暴露于创伤性事件的令人作呕的细节中（例如，急救员收集人体残骸；警察反复接触虐待儿童的细节）。</div>
+<div class="criteria-item">注：诊断标准A4不适用于通过电子媒体、电视、电影或图片的接触，除非这种接触与工作相关。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>在创伤性事件发生后，存在以下1个（或多个）与创伤性事件有关的闯入性症状：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 创伤性事件反复的、非自愿的和闯入性的痛苦记忆。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 反复做内容和/或情感与创伤性事件相关的痛苦的梦。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 解离性反应（例如，闪回），个体的感觉或举动好像创伤性事件重复出现。（这种反应可能连续出现，最极端的表现是对目前的环境完全丧失意识。）</div>
+<div class="criteria-item" style="margin-left:20px;">4. 暴露于象征或类似创伤性事件某方面的内在或外在线索时，产生强烈或持久的心理痛苦。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 对象征或类似创伤性事件某方面的内在或外在线索产生明显的生理反应。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>创伤性事件后，开始持续回避与创伤性事件有关的刺激，具有以下1项或2项情况：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 回避或努力回避关于创伤性事件或与其高度相关的痛苦记忆、想法或感觉。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 回避或努力回避能够唤起关于创伤性事件或与其高度相关的痛苦记忆、想法或感觉的外部线索（人、地点、对话、活动、物体、情景）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>与创伤性事件有关的认知和心境方面的负性改变，在创伤性事件发生后开始或加剧，具有以下2项（或更多）情况：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 无法记住创伤性事件的某个重要方面（通常是由于解离性遗忘症，而不是诸如脑损伤、酒精、毒品等其他因素所致）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 对自己、他人或世界持续夸大的负性信念和预期（例如，“我很坏”“没有人可以信任”“世界是绝对危险的”“我的整个精神系统永久性地毁坏了”）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 由于对创伤性事件的原因或结果持续性的认知歪曲，导致个体责备自己或他人。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 持续性的负性情绪状态（例如，害怕、恐惧、愤怒、内疚、羞耻）。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 明显地减少对重要活动的兴趣或参与。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 与他人脱离或疏远的感觉。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 持续地不能体验到正性情绪（例如，不能体验快乐、满足或爱的感觉）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>与创伤性事件有关的警觉或反应性有明显的改变，在创伤性事件发生后开始或加剧，具有以下2项（或更多）情况：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 激惹的行为和愤怒的爆发（在很少或没有挑衅的情况下），典型表现为对人或物体的言语或身体攻击。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 不计后果或自我毁灭的行为。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 高警觉。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 过度的惊跳反应。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 注意力问题。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 睡眠障碍（例如，难以入睡或保持睡眠，或者休息不充分的睡眠）。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种障碍的持续时间（诊断标准B、C、D、E）超过1个月。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>这种障碍引起临床上明显的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">H.</span>这种障碍不能归因于某种物质（如药物、酒精）的生理效应或其他躯体疾病。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="specifiers"><p>伴解离症状：个体的症状符合创伤后应激障碍的诊断标准。此外，作为对应激源的反应，个体经历了持续或反复的下列症状之一：</p></div>
+<div class="criteria-item" style="margin-left:20px;">1. 人格解体： 持续或反复地体验自己的精神过程或躯体脱离感，似乎自己是一个旁观者（例如，感觉身在梦中；感觉自我或身体的非现实感，或者感觉时间过得很慢）；</div>
+<div class="criteria-item" style="margin-left:20px;">2. 现实解体：持续或反复地体验到环境的不真实感（例如，个体感觉周围世界是虚幻的、如梦般的、遥远的或扭曲的）。</div>
+<div class="criteria-item">注：使用这一亚型，其解离症状不能归因于某种物质的生理效应（例如，一过性黑蒙，酒精中毒的行为）或其他躯体疾病（例如，复杂部分性发作癫痫）。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴延迟性表达：如果直到事件后至少6个月才符合全部诊断标准（尽管有一些症状可能是立即发生和表达的）。</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="特定恐怖症">
+                    <div class="disorder-name">特定恐怖症</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>对于特定的事物或情境（例如，飞行、高处、动物、接受注射、看见血液）产生明显的害怕或焦虑。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>恐惧的事物或情境几乎总是能够立即诱发害怕或焦虑。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>主动回避恐惧的事物或情境，或者带着强烈的害怕或焦虑去忍受。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种害怕或焦虑与特定事物或情境所引发的实际危险以及所处的社会文化环境不相称。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种害怕、焦虑或回避通常持续至少6个月。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种害怕、焦虑或回避引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>这种障碍不能用其他精神障碍的症状来更好地解释，包括与下列这些情况相联系的害怕、焦虑和回避：惊恐样症状或（如广场恐怖症中的）其他功能丧失症状；（如强迫症中的）与强迫思维有关的事物或情境；（如创伤后应激障碍中的）与创伤性事件相关的提示物；（如分离焦虑障碍中的）离家或离开依恋者；（如社交焦虑障碍中的）社交情境。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">根据恐惧刺激源编码：</div>
+<div class="criteria-item" style="margin-left:20px;">300. 29（F40.218）动物型（例如，蜘蛛、昆虫、狗）。</div>
+<div class="criteria-item" style="margin-left:20px;">300. 29（F40.228）自然环境型（例如，高处、暴风雨、水）。</div>
+<div class="criteria-item" style="margin-left:20px;">300. 29（F40.23x）血液–注射–损伤型（例如，针头、侵入性医疗操作）。</div>
+<div class="specifiers"><p>编码备注：选择具体的ICD-10-CM编码如下：F40.230害怕血液；F40.231害怕注射和输液；F40.232害怕其他医疗服务；300. 29（F40.233）害怕受伤。</p></div>
+<div class="criteria-item" style="margin-left:20px;">300. 29（F40.248）情境型（例如，飞机、电梯、封闭空间）。</div>
+<div class="criteria-item" style="margin-left:20px;">300. 29（F40.298）其他（例如，可能导致哽噎或呕吐的情况；儿童则可能表现为对巨响或化妆人物的恐惧）。</div>
+<div class="specifiers"><p>编码备注：当存在超过一种恐惧刺激源时，需要列出所有适合的ICD-10-CM编码（例如，害怕蛇和飞行，其编码为F40.218特定恐怖症，动物型和F40.248特定恐怖症，情境型）。</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="社交焦虑障碍">
+                    <div class="disorder-name">社交焦虑障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>个体由于面对被他人审视的一种或多种社交情境时而产生明显的害怕或焦虑。例如，社交互动（交谈、会见陌生人），被观看（吃或喝的时候），以及在他人面前表演（演讲时）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>个体害怕自己的言行或呈现的焦虑症状会导致负性的评价（即被羞辱或尴尬；导致被拒绝或冒犯他人）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>社交情境几乎总是能够促发害怕或焦虑。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>主动回避社交情境，或者带着强烈的害怕或焦虑去忍受。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种害怕或焦虑与社交情境和社会文化环境所造成的实际威胁不相称。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种害怕、焦虑或回避通常持续至少6个月。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>这种害怕、焦虑或回避引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">H.</span>这种害怕、焦虑或回避不能归因于某种物质（例如，滥用的毒品、药物）的生理效应，或其他躯体疾病。</div>
+<div class="criteria-item"><span class="criteria-letter">I.</span>这种害怕、焦虑或回避不能用其他精神障碍的症状来更好地解释，例如，惊恐障碍、躯体变形障碍或孤独症（自闭症）谱系障碍。</div>
+<div class="criteria-item"><span class="criteria-letter">J.</span>如果有其他躯体疾病（例如，帕金森氏病、肥胖症、烧伤或外伤造成的畸形）存在，则这种害怕、焦虑或回避则是明确与其不相关或过度。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">仅限于表演状态：如果这种害怕仅出现在公共场所的演讲或表演。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="惊恐障碍">
+                    <div class="disorder-name">惊恐障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复出现不可预期的惊恐发作。一次惊恐发作是突然发生的强烈的害怕或不适感，并在几分钟内达到高峰，发作期间出现下列4项及以上症状。</div>
+<div class="criteria-item">注：这种突然发生的惊恐可以出现在平静状态或焦虑状态。</div>
+<div class="criteria-item" style="margin-left:20px;">1. 心悸、心慌或心率加速。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 出汗。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 震颤或发抖。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 气短或窒息感。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 哽噎感。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 胸痛或胸部不适。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 恶心或腹部不适。</div>
+<div class="criteria-item" style="margin-left:20px;">8. 感到头昏、脚步不稳、头重脚轻或昏厥。</div>
+<div class="criteria-item" style="margin-left:20px;">9. 发冷或发热感。</div>
+<div class="criteria-item" style="margin-left:20px;">10. 感觉异常（麻木或针刺感）。</div>
+<div class="criteria-item" style="margin-left:20px;">11. 现实解体（感觉不真实）或人格解体（感觉脱离了自己）。</div>
+<div class="criteria-item" style="margin-left:20px;">12. 害怕失去控制或“发疯”。</div>
+<div class="criteria-item" style="margin-left:20px;">13. 濒死感。</div>
+<div class="criteria-item">注：可能观察到与特定文化有关的症状（例如，耳鸣、颈部酸痛、头疼、无法控制的尖叫或哭喊），此类症状不可作为诊断所需的4个症状之一。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>至少在1次发作之后，出现下列症状中的1 ～ 2种，且持续1个月（或更长）时间：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 持续地担忧或担心再次的惊恐发作或及其结果（例如，失去控制、心脏病发作、“发疯”）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 在与惊恐发作相关的行为方面出现明显的不良变化（例如，设计某些行为以回避惊恐发作，如回避锻炼或回避不熟悉的情境）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病（例如，甲状腺功能亢进、心肺疾病）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种障碍不能用其他精神障碍来更好地解释（例如，像社交焦虑障碍中，惊恐发作不仅出现于对害怕的社交情境的反应；像特定恐怖症中，惊恐发作不仅出现于对有限的恐惧对象或情境的反应；像强迫症中，惊恐发作不仅出现于对强迫思维的反应；像创伤后应激障碍中，惊恐发作不仅出现于对创伤性事件的提示物的反应；或像分离焦虑障碍中，惊恐发作不仅出现于对与依恋对象分离的反应）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="广泛性焦虑障碍">
+                    <div class="disorder-name">广泛性焦虑障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>在至少6个月的多数日子里，对于诸多事件或活动（例如，工作或学校表现），表现出过分的焦虑和担忧（忧虑性期望）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>个体难以控制这种担忧。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种焦虑和担忧与下列6种症状中至少3种有关（在过去6个月中，至少一些症状在多数日子里存在）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 坐立不安或感到激动或紧张。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 容易疲倦。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 注意力难以集中或头脑一片空白。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 易激惹。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 肌肉紧张。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 睡眠障碍（难以入睡或保持睡眠状态，或休息不充分、质量不满意的睡眠）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种焦虑、担忧或躯体症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病（例如，甲状腺功能亢进）。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种障碍不能用其他精神障碍来更好地解释（例如，像惊恐障碍中的焦虑或担心发生惊恐发作，像社交焦虑障碍 [社交恐惧症] 中的负性评价，像强迫症中的被污染或其他强迫思维，像分离焦虑障碍中的与依恋对象的离别，像创伤后应激障碍中的创伤性事件的线索，像神经性厌食中的体重增加，像躯体症状障碍中的躯体不适，像躯体变形障碍中的感到外貌存在瑕疵，像疾病焦虑障碍中的感到有严重的疾病，或像精神分裂症或妄想障碍中的妄想信念的内容）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="分离焦虑障碍">
+                    <div class="disorder-name">分离焦虑障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>个体与其依恋对象离别时，会产生与其发育阶段不相称的、过度的害怕或焦虑，至少符合以下表现中的3种：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 当预期或经历与家庭或主要依恋对象离别时，产生反复的、过度的痛苦。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 持续和过度地担心会失去主要依恋对象，或担心他们可能受到诸如疾病、受伤、灾难或死亡的伤害。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 持续和过度地担心会经历导致与主要依恋对象离别的不幸事件（例如，走失、被绑架、事故、生病）。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 因害怕离别，持续表现不愿或拒绝出门、离开家、去上学、去工作或去其他地方。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 持续和过度害怕或不愿独处或不愿在家或其他场所与主要依恋对象不在一起。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 持续地不愿或拒绝在家以外的地方睡觉或主要依恋对象不在身边时睡觉。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 反复做内容与离别有关的噩梦。</div>
+<div class="criteria-item" style="margin-left:20px;">8. 当与主要依恋对象离别或预期离别时，反复地抱怨躯体性症状（例如，头疼、胃疼、恶心、呕吐）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这种害怕、焦虑或回避是持续性的，儿童和青少年至少持续4周，成年人则至少持续6个月。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种障碍引起有临床意义的痛苦，或导致社交、学业、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种障碍不能用其他精神障碍来更好地解释，例如，像孤独症谱系障碍中的因不愿过度改变而导致拒绝离家，像精神病性障碍中的因妄想或幻觉而担忧分别，像广场恐怖症中的因没有一个信任的同伴陪伴而拒绝出门，像广泛性焦虑障碍中的担心疾病或伤害会降临到其他重要的人身上，或像疾病焦虑障碍中的担心会患病。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
+                </div>
 
                 <div class="disorder-card" data-name="强迫症">
                     <div class="disorder-name">强迫症</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>具有强迫观念、强迫行为，或两者皆有。强迫观念被定义为以下（1）和（2）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 在该障碍的某些时间段，感受到反复的、持续性的、闯入性的和不必要的想法、冲动或表象，大多数个体会引起明显的焦虑或痛苦。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 个体试图忽略或压抑此类想法、冲动或表象，或用其他一些想法或行为来中和它们（例如，通过某种强迫行为）。</div>
+<div class="criteria-item">强迫行为被定义为以下（1）和（2）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 重复行为（例如，洗手、排序、检查）或精神活动（例如，祈祷、计数、反复默诵字词）。个体感到重复行为或精神活动是作为应对强迫观念或根据必须严格执行的规则而被迫执行的。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 重复行为或精神活动的目的是防止或减少焦虑或痛苦，或防止某些可怕的事件或情境；然而，这些重复行为或精神活动与所设计的中和或预防的事件或情境缺乏现实的连接，或明显是过度的。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>强迫观念或强迫行为是耗时的（例如，每天消耗1小时以上）或这些症状引起具有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>强迫症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>该障碍不能用其他精神障碍的症状来更好地解释（例如，广泛性焦虑障碍中的过度担心，躯体变形障碍中的外貌先占观念，囤积障碍中的难以丢弃或放弃物品，拔毛癖[拔毛障碍]中的拔头发，抓痕[皮肤搔抓]障碍中的皮肤搔抓，刻板运动障碍中的刻板行为，进食障碍中的仪式化进食行为，物质相关及成瘾障碍中物质或赌博的先占观念，疾病焦虑障碍中患有某种疾病的先占观念，性欲倒错障碍中的性冲动或性幻想，破坏性、冲动控制及品行障碍中的冲动，抑郁症中的内疚性思维反刍，精神分裂症谱系及其他精神病性障碍中的思维插入或妄想性的先占观念，或孤独症[自闭症]谱系障碍中的重复性行为模式）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            具有强迫观念、强迫行为，或两者皆有。强迫观念被定义为以下（1）和（2）：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            强迫观念或强迫行为是耗时的（例如，每天消耗1小时以上）或这些症状引起具有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
-                        </li>
+                <div class="disorder-card" data-name="囤积障碍">
+                    <div class="disorder-name">囤积障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>持续地难以丢弃或放弃物品，不管它们的实际价值如何。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这种困难是由于感受到积攒物品的需要及与丢弃它们有关的痛苦。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>难以丢弃物品导致了物品的堆积以及使用中的生活区域的拥挤和杂乱，且明显地影响了其用途。如果生活区域不杂乱，则只是因为第三方的干预（例如，家庭成员、清洁工、权威人士）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种囤积引起具有临床意义的痛苦，或导致社交、职业和其他重要功能方面的损害（包括为自己和他人保持一个安全的环境）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种囤积不能归因于其他躯体疾病（例如，脑损伤、脑血管疾病、肌张力减退-智力减退-性腺功能减退与肥胖综合征）。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>这种囤积症状不能用其他精神障碍来更好地解释（例如，强迫症中的强迫思维，抑郁症中的能量减少，精神分裂症或其他精神病性障碍中的妄想，重度神经认知障碍中的认知缺陷，孤独症[自闭症]谱系障碍中的兴趣受限）。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴过度收集：如果难以丢弃物品伴随在没有可用空间的情况下过度收集不需要的物品。</p></div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴良好或一般的自知力：个体意识到与囤积相关的信念和行为（与难以丢弃物品、杂物或过度收集有关）是有问题的。</p></div>
+<div class="specifiers"><p>伴差的自知力：尽管存在相反的证据，个体仍几乎确信与囤积相关的信念和行为（与难以丢弃物品、杂物或过度收集有关）没有问题。</p></div>
+<div class="criteria-item">缺乏自知力/妄想信念：尽管存在相反的证据，个体仍完全确信与囤积有关的信念和行为（与难以丢弃物品、杂物或过度收集有关）没有问题。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            强迫症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            该障碍不能用其他精神障碍的症状来更好地解释（例如，广泛性焦虑障碍中的过度担心，躯体变形障碍中的外貌先占观念，囤积障碍中的难以丢弃或放弃物品，拔毛癖[拔毛障碍]中的拔头发，抓痕[皮肤搔抓]障碍中的皮肤搔抓，刻板运动障碍中的刻板行为，进食障碍中的仪式化进食行为，物质相关及成瘾障碍中物质或赌博的先占观念，疾病焦虑障碍中患有某种疾病的先占观念，性欲倒错障碍中的性冲动或性幻想，破坏性、冲动控制及品行障碍中的冲动，抑郁症中的内疚性思维反刍，精神分裂症谱系及其他精神病性障碍中的思维插入或妄想性的先占观念，或孤独症[自闭症]谱系障碍中的重复性行为模式）。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="6">
-                <h2 class="chapter-title">第6章 躯体症状与分离障碍</h2>
+                <h2 class="chapter-title">第6章 躯体症状障碍和分离障碍</h2>
 
                 <div class="disorder-card" data-name="躯体症状障碍">
                     <div class="disorder-name">躯体症状障碍</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            1种或多种躯体症状，使个体感到痛苦或导致其日常生活受到明显破坏。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            与躯体症状相关的极端想法、感觉或行为，或与健康相关的过度担忧，至少表现为下列一项：
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            虽然任何一种躯体症状可能都不会持续存在，但有症状的状态是持续存在的（通常超过6个月）。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>主要表现为疼痛：此标注适用于那些躯体症状主要为疼痛的个体。
-持续性：以严重的症状、明显的损害和长病程（超过6个月）为特征。
-轻度（只有1项符合诊断标准B的症状）；中度（2项或更多符合诊断标准B的症状）；重度（2项或更多符合诊断标准B的症状，并且有多种躯体主诉或1项非常严重的躯体主诉）。</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>1种或多种躯体症状，使个体感到痛苦或导致其日常生活受到明显破坏。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>与躯体症状相关的极端想法、感觉或行为，或与健康相关的过度担忧，至少表现为下列一项：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 与个体症状严重性不相称的、持续的想法。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 有关健康或症状的持续高水平的焦虑。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 对这些症状或健康的担忧耗费过多的时间和精力。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>虽然任何一种躯体症状可能都不会持续存在，但有症状的状态是持续存在的（通常超过6个月）。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">主要表现为疼痛：此标注适用于那些躯体症状主要为疼痛的个体。</div>
+<div class="criteria-item">持续性：以严重的症状、明显的损害和长病程（超过6个月）为特征。</div>
+<div class="criteria-item">轻度（只有1项符合诊断标准B的症状）；中度（2项或更多符合诊断标准B的症状）；重度（2项或更多符合诊断标准B的症状，并且有多种躯体主诉或1项非常严重的躯体主诉）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
+                </div>
 
+                <div class="disorder-card" data-name="疾病焦虑障碍">
+                    <div class="disorder-name">疾病焦虑障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>患有或获得某种严重疾病的先占观念。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>不存在躯体症状，如果存在也是轻微的。即便存在其他躯体疾病或有发展为某种躯体疾病的高度风险（例如，存在明确的家族史），其先占观念显然也是过度的或不相称的。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>对健康状况存在明显的焦虑，个体对个人健康状况易于警觉。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>个体有与健康相关的过度行为（如反复检查躯体疾病的体征）或表现出适应不良的回避（如回避与医生的预约和医院）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>疾病的先占观念已经存在至少6个月，但所害怕的特定疾病在此段时间内可能会有变化。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>与疾病相关的先占观念不能用其他精神障碍来更好地解释，例如，躯体症状障碍、惊恐障碍、广泛性焦虑障碍、躯体变形障碍、强迫症或妄想障碍躯体型。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="criteria-item">寻求服务型：经常使用医疗服务。</div>
+<div class="criteria-item">回避服务型：很少使用医疗服务。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
+                </div>
+
+                <div class="disorder-card" data-name="转换障碍（功能性神经症状障碍）">
+                    <div class="disorder-name">转换障碍（功能性神经症状障碍）</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>1个或多个随意运动或感觉功能改变的症状。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>临床检查结果提供了其症状与公认的神经或躯体情况之间不一致的证据。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>其症状或缺陷不能用其他躯体疾病或精神障碍来更好地解释。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>其症状或缺陷引起临床上明显的痛苦，或者导致社交、职业或其他重要功能方面的损害或需要医学评估。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="分离性身份障碍">
                     <div class="disorder-name">分离性身份障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>存在两个或更多以截然不同的人格状态为特征的身份瓦解，这可能在某些文化中被描述为一种附体体验。身份的瓦解涉及明显的自我感和自我控制感的中断，伴随着与情感、行为、意识、记忆、感知、认知和/或感觉运动功能相关的改变。这些体征和症状可以被他人观察到或由个体自己报告。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>回忆日常事件、重要的个人信息和/或创伤事件时，存在反复的空白期，它们与普通的遗忘不一致。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>该障碍并非广泛可接受的文化或宗教习俗的一部分。</div>
+<div class="criteria-item">注：对于儿童，这些症状不能更好地用假想玩伴或其他幻想游戏来解释。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这些症状不能归因于某种物质的直接生理效应（例如，在酒精中毒过程中的一过性黑蒙或混乱行为）或其他躯体疾病（例如，复杂部分性发作）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            存在两个或更多以截然不同的人格状态为特征的身份瓦解，这可能在某些文化中被描述为一种附体体验。身份的瓦解涉及明显的自我感和自我控制感的中断，伴随着与情感、行为、意识、记忆、感知、认知和/或感觉运动功能相关的改变。这些体征和症状可以被他人观察到或由个体自己报告。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            回忆日常事件、重要的个人信息和/或创伤事件时，存在反复的空白期，它们与普通的遗忘不一致。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            该障碍并非广泛可接受的文化或宗教习俗的一部分。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            这些症状不能归因于某种物质的直接生理效应（例如，在酒精中毒过程中的一过性黑蒙或混乱行为）或其他躯体疾病（例如，复杂部分性发作）。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="分离性遗忘症">
                     <div class="disorder-name">分离性遗忘症</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            不能回忆起重要的、自传式的个人信息，通常具有创伤或应激性质，且与普通的健忘不一致。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            这些症状不能归因于某种物质（例如，酒精或其他滥用的毒品、药物）的生理效应或神经系统或其他躯体疾病（例如，复杂部分性发作、短暂性全面性遗忘症、闭合性头部损伤/创伤性脑损伤后遗症、其他神经系统疾病）。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            该障碍不能用分离性身份障碍、创伤后应激障碍、急性应激障碍、躯体症状障碍、重度或轻度的神经认知障碍来更好地解释。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>伴分离性漫游：似乎有目的的旅行，或与遗忘身份或其他重要个人信息有关的漫无目标的游荡。</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>不能回忆起重要的、自传式的个人信息，通常具有创伤或应激性质，且与普通的健忘不一致。</div>
+<div class="criteria-item">注：分离性遗忘症通常具有对特定事件的局限性的或选择性遗忘；或对身份和生活史的广泛性遗忘。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这些症状不能归因于某种物质（例如，酒精或其他滥用的毒品、药物）的生理效应或神经系统或其他躯体疾病（例如，复杂部分性发作、短暂性全面性遗忘症、闭合性头部损伤/创伤性脑损伤后遗症、其他神经系统疾病）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>该障碍不能用分离性身份障碍、创伤后应激障碍、急性应激障碍、躯体症状障碍、重度或轻度的神经认知障碍来更好地解释。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴分离性漫游：似乎有目的的旅行，或与遗忘身份或其他重要个人信息有关的漫无目标的游荡。</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
+                </div>
 
+                <div class="disorder-card" data-name="人格解体/现实解体障碍">
+                    <div class="disorder-name">人格解体/现实解体障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>存在持续的或反复的人格解体或现实解体的体验或两者兼有：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 人格解体：对个体的思维、情感、感觉、躯体或行动的不真实的、分离的或作为旁观者的体验（例如，感知的改变，时间感的扭曲，自我感的不真实或丧失，情感和/或躯体的麻木）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 现实解体：对环境的不真实的或分离的体验（例如，感觉个体或物体是不真实的、梦样的、模糊的、无生命的或视觉扭曲的）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>在人格解体或现实解体的体验中，其现实体验仍然是完整的。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这些症状引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病（例如，惊厥发作）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>该障碍不能用其他精神障碍来更好地解释，例如，精神分裂症、惊恐障碍、抑郁症、急性应激障碍、创伤后应激障碍或其他分离障碍。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="8">
-                <h2 class="chapter-title">第8章 精神分裂症</h2>
+                <h2 class="chapter-title">第8章 精神分裂症谱系及其他精神病性障碍</h2>
+
+                <div class="disorder-card" data-name="精神分裂症">
+                    <div class="disorder-name">精神分裂症</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>两项（或更多）下列症状，每一项症状均在1个月中有相当明显的一段时间里存在（如经成功治疗。则时间可以更短），至少其中一项必须是1，2或3：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 妄想</div>
+<div class="criteria-item" style="margin-left:20px;">2. 幻觉</div>
+<div class="criteria-item" style="margin-left:20px;">3. 言语紊乱（例如，频繁的思维脱轨或联想松弛）</div>
+<div class="criteria-item" style="margin-left:20px;">4. 有明显紊乱的行为或紧张症行为</div>
+<div class="criteria-item" style="margin-left:20px;">5. 阴性症状（例如，情绪表达减少或意志减退）</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>自障碍发生以来的明显时间段内，一个或更多的重要方面的功能水平，如工作、人际关系或自我照顾，明显低于障碍发生前具有的水平（或若障碍发生于儿童期或青少年期时，则人际关系、学业或职业功能未能达到预期的发展水平）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种障碍的体征至少持续6个月。此6个月应包括至少1个月（如经成功治疗，则时间可以更短）符合诊断标准A的症状（即活动期症状），可包括前驱期或残留期症状。在前驱期或残留期，该障碍的体征可表现为仅有阴性症状，或有轻微的诊断标准A所列的两项或更多症状（例如，奇特的信念、不寻常的知觉体验）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>分裂情感性障碍和抑郁或双相障碍伴随精神病性特征已经被排除，因为：（1）没有与活动期症状同时出现的重性抑郁或躁狂发作；或（2）如果心境发作出现在症状活动期，则它们只是存在此疾病的活动期和残留期整个病程的小部分时间内。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>如果有孤独症（自闭症）谱系障碍或儿童期发生的交流障碍的病史，除了精神分裂症的其他症状外，还需有明显的妄想或幻觉，且存在至少1个月（如经成功治疗，则时间可以更短），才能作出精神分裂症的额外诊断。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴紧张症</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
 
                 <div class="disorder-card" data-name="分裂情感性障碍">
                     <div class="disorder-name">分裂情感性障碍</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            在一个不间断的疾病周期中，有主要心境发作（抑郁症或躁狂），同时存在符合精神分裂症诊断标准A的症状。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            在此疾病的全程中，在缺少主要心境发作（抑郁或躁狂）的情况下，存在持续两周或更长时间的妄想或幻觉。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            在此疾病的活动期和残留期的整个病程的大部分时间内，存在符合主要心境发作诊断标准的诊断。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>伴紧张症</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>在一个不间断的疾病周期中，有主要心境发作（抑郁症或躁狂），同时存在符合精神分裂症诊断标准A的症状。</div>
+<div class="criteria-item">注：重性抑郁发作必须包括诊断标准A1：抑郁心境。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>在此疾病的全程中，在缺少主要心境发作（抑郁或躁狂）的情况下，存在持续两周或更长时间的妄想或幻觉。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>在此疾病的活动期和残留期的整个病程的大部分时间内，存在符合主要心境发作诊断标准的诊断。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这种障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="criteria-item">双相型：如果临床表现的一部分是躁狂发作，则适用此亚型，也可以出现重性抑郁发作。</div>
+<div class="criteria-item">抑郁型：如果临床表现的一部分仅仅是典型重性抑郁发作，则适用此亚型。</div>
+<div class="specifiers"><p>标注如果是：伴紧张症</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
-
                 </div>
 
                 <div class="disorder-card" data-name="精神分裂症样障碍">
                     <div class="disorder-name">精神分裂症样障碍</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            满足精神分裂症的A、D和E标准（见表8.2）。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            这种障碍的发作持续至少1个月，但少于6个月。当不能等待其痊愈就需作出诊断时，应定性为“临时”。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>伴良好的预后特征：此标注需要存在至少两项下列特征：</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>满足精神分裂症的A、D和E标准（见表8.2）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这种障碍的发作持续至少1个月，但少于6个月。当不能等待其痊愈就需作出诊断时，应定性为“临时”。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴良好的预后特征：此标注需要存在至少两项下列特征：</p></div>
+<div class="criteria-item" style="margin-left:20px;">1. 明显的精神病性症状发生在日常行为或功能首次出现可察觉变化的4周内</div>
+<div class="criteria-item" style="margin-left:20px;">2. 意识模糊或混乱</div>
+<div class="criteria-item" style="margin-left:20px;">3. 病前社交或职业功能良好</div>
+<div class="criteria-item" style="margin-left:20px;">4. 无情感迟钝或平淡</div>
+<div class="criteria-item">无良好的预后特征</div>
+<div class="specifiers"><p>伴紧张症</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
+                </div>
 
+                <div class="disorder-card" data-name="短暂精神病性障碍">
+                    <div class="disorder-name">短暂精神病性障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>出现下面一个（或更多）症状。其中至少一项必须是1、2或3：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 妄想</div>
+<div class="criteria-item" style="margin-left:20px;">2. 幻觉</div>
+<div class="criteria-item" style="margin-left:20px;">3. 言语紊乱（例如，频繁地思维脱轨或联想松弛）</div>
+<div class="criteria-item" style="margin-left:20px;">4. 极度紊乱的或紧张症的行为</div>
+<div class="criteria-item">注：不包括文化认可的反应性症状。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这种障碍的发作持续至少1天，但少于1个月，最终能完全恢复到发病前的功能水平。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>这种障碍不能更好地用抑郁症或双相障碍伴精神病性特征或其他精神病性障碍如精神分裂症或紧张症来解释，也不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体疾病。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴明显的应激源（短暂反应性精神病）：患者的症状是对单一或复合事件的反应，该事件在患者所处的文化中及在相同的环境下，对几乎所有人都是明显的应激。</p></div>
+<div class="criteria-item">无明显的应激源：患者的症状不是对单一或复合事件的反应，该事件在患者所处的文化中及在相同的情境下，对几乎所有人都是明显的应激。</div>
+<div class="specifiers"><p>伴产后起病：如果发生于孕期或产后4周之内。</p></div>
+<div class="specifiers"><p>伴紧张症</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="妄想障碍">
                     <div class="disorder-name">妄想障碍</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            存在1个或多个妄想，至少持续1个月或更长。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            从不符合精神分裂症的诊断标准A。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            除妄想或其结果的影响之外，功能没有明显损害，行为也没有明显的离奇或古怪。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            如果出现躁狂与重性抑郁发作，那么它们的持续时间相比妄想来说是短暂的。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            这种障碍不能归因于某种物质的生理效应或其他躯体疾病，且不能用其他精神障碍来更好地解释，如躯体变形障碍或强迫症。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>伴离奇的内容：如果妄想的内容显然是难以置信、不可理解的，也不是来自于平常的生活经验（例如，个体相信一个陌生人移除了其内部器官，取而代之以他人的器官，且没有留下任何伤口或疤痕），那么妄想就被视为离奇的。</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>存在1个或多个妄想，至少持续1个月或更长。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>从不符合精神分裂症的诊断标准A。</div>
+<div class="criteria-item">注：如果存在幻觉，则不突出，并与妄想主题相关（例如，感觉被昆虫寄生，这与虫害成灾的妄想有关）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>除妄想或其结果的影响之外，功能没有明显损害，行为也没有明显的离奇或古怪。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>如果出现躁狂与重性抑郁发作，那么它们的持续时间相比妄想来说是短暂的。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这种障碍不能归因于某种物质的生理效应或其他躯体疾病，且不能用其他精神障碍来更好地解释，如躯体变形障碍或强迫症。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="criteria-item">钟情型：妄想的核心主题是另一个人爱上自己。</div>
+<div class="criteria-item">夸大型：妄想的核心主题是个体坚信自己拥有伟大（但未被认可）的天赋或洞察力或取得了重大的发现。</div>
+<div class="criteria-item">嫉妒型：妄想的核心主题是个体的配偶或爱人不忠。</div>
+<div class="criteria-item">被害型：妄想的核心主题是个体认为自己被密谋算计、欺骗、监视、跟踪、下毒或下药、恶意诽谤、骚扰，或者在追求长期目标时受阻碍。</div>
+<div class="criteria-item">躯体型：妄想的核心主题涉及躯体功能或感觉。</div>
+<div class="criteria-item">混合型：没有一个妄想主题占主导地位。</div>
+<div class="criteria-item">未特定型：占主导地位的妄想信念不能被清楚地确定或其特定类型不能被清楚地描述（例如，关系妄想中没有突出的被害或夸大的成分）。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="specifiers"><p>伴离奇的内容：如果妄想的内容显然是难以置信、不可理解的，也不是来自于平常的生活经验（例如，个体相信一个陌生人移除了其内部器官，取而代之以他人的器官，且没有留下任何伤口或疤痕），那么妄想就被视为离奇的。</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
+                </div>
 
+                <div class="disorder-card" data-name="分裂型人格障碍">
+                    <div class="disorder-name">分裂型人格障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种社交和人际关系缺陷的普遍模式，明显特点是对亲密关系有强烈不适感，建立亲密关系的能力下降，且有认知或知觉的扭曲和古怪行为，起始于成年早期，存在于不同环境中，表现出下述症状中的5项或更多：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 牵连观念（不包括关系妄想）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 影响行为的古怪信念或魔幻思维，与所在亚文化规范不一致（例如，迷信、相信千里眼、心灵感应或“第六感”；儿童和青少年，可表现为怪异的幻想或先占观念）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 不寻常的知觉体验，包括躯体错觉。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 古怪的思维和言语（例如，模糊的、详尽的、隐喻的、繁琐的或刻板的）。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 猜疑或偏执的想法。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 不恰当的或受限制的情感。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 行为或外表古怪、反常或怪异的。</div>
+<div class="criteria-item" style="margin-left:20px;">8. 除一级亲属外，缺少亲密的朋友或知己。</div>
+<div class="criteria-item" style="margin-left:20px;">9. 过度的社交焦虑，并不随着熟悉程度而减弱，倾向于与偏执的恐惧相关，而非对自己的负性判断。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>并不只出现在精神分裂症、伴精神病性特征的双相障碍或抑郁症、其他精神病性障碍或孤独症谱系障碍的病程中。</div>
+<div class="criteria-item">注：如在精神分裂症发生之前已符合此诊断标准，可加上“病前”，即“分裂型人格障碍（病前）”。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="10">
-                <h2 class="chapter-title">第10章 神经发育障碍</h2>
+                <h2 class="chapter-title">第10章 神经发育障碍与神经认知障碍</h2>
+
+                <div class="disorder-card" data-name="注意缺陷/多动障碍">
+                    <div class="disorder-name">注意缺陷/多动障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种持续的注意缺陷和/或多动—冲动的模式，妨碍了功能或发育，以下列（1）和/或（2）为特征：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 注意缺陷：6项（或更多）的下列症状持续至少6个月，且达到了与发育水平不相符的程度，并直接负性地影响社会和学业/职业活动。</div>
+<div class="criteria-item">注：这些症状不仅仅是对立行为、违拗、敌意的表现，或不能理解任务或指令。年龄较大的青少年和成年人（17岁及以上），至少需要符合下列症状中的5项。</div>
+<div class="criteria-item">a. 经常不能密切注意细节，或在学校功课、工作或其他活动中犯粗心的错误（例如，忽视或遗漏细节，作品不精确）。</div>
+<div class="criteria-item">b. 常常难以把注意力维持在任务或者游戏活动上（例如，在听课、对话或长篇阅读中难以保持专注）。</div>
+<div class="criteria-item">c. 在他人对其直接说话时经常似乎并没有在听（例如，即使在没有任何明显干扰的情况下，显得心不在焉）。</div>
+<div class="criteria-item">d. 经常不遵守指示，以致不能完成学校功课、家务或工作职责（例如，开始了任务但很快失去重点并且容易分神）。</div>
+<div class="criteria-item">e. 经常难以组织任务和活动（例如，难以管理有次序的任务；难以把材料和物品放得井然有序；凌乱、工作没有头绪；时间管理差；易于错过截止日期）。</div>
+<div class="criteria-item">f. 经常回避、厌恶或不情愿参与需要持续精神努力的任务（例如，学校功课或家庭作业；对于年龄较大的青少年和成年人，则指准备报告、完成表格或审阅长篇文章）。</div>
+<div class="criteria-item">g. 经常丢失任务或活动所需的物品（例如，学校的材料、铅笔、书、工具、钱包、钥匙、文件、眼镜、手机）。</div>
+<div class="criteria-item">h. 常常容易被外界的刺激分心（对于年龄较大的青少年和成年人，可能包括不相关的想法）。</div>
+<div class="criteria-item">i. 在日常活动中常常忘记事情（例如，做家务、外出办事；对于年龄较大的青少年和成年人，则指回电话、付账单、约会）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 多动和冲动：6项（或更多）的下列症状持续至少6个月，且达到了与发育水平不相符的程度，并直接负性地影响了社会和学业/职业活动。</div>
+<div class="criteria-item">注：这些症状不仅仅是对立行为、违拗、敌意的表现，或不能理解任务或指令。年龄较大的青少年和成年人（17岁及以上），至少需要符合下列症状中的5项。</div>
+<div class="criteria-item">a. 手或脚经常有些小动作，或在座位上扭动。</div>
+<div class="criteria-item">b. 经常在被期待坐着的情景下擅自离开座位（例如，离开他或她在教室、办公室或其他工作场所，或者在其他情况下需要保持原位的位置）。</div>
+<div class="criteria-item">c. 经常在不合时宜的场合乱跑或攀爬（注：对于青少年或成年人可以仅限于感到坐立不安）。</div>
+<div class="criteria-item">d. 常常难以安静地玩耍或参与休闲活动。</div>
+<div class="criteria-item">e. 常常“忙个不停”，好像“被发动机驱动着”（例如，在餐厅、会议中无法长时间保持不动或感到不舒服；可能被他人感受为坐立不安或难以跟上）。</div>
+<div class="criteria-item">f. 常常过于多话。</div>
+<div class="criteria-item">g. 经常在问题还没讲完之前答案就脱口而出（例如，接他人的话；在对话中不能等待轮流说话）。</div>
+<div class="criteria-item">h. 经常难以等待轮到他/她（例如，当排队等待时）。</div>
+<div class="criteria-item">i. 常常打断或侵扰他人（例如，插入他人的对话、游戏或活动；没有询问或未经允许就开始使用他人的东西；对于青少年和成年人，可能是侵扰或接管他人正在做的事情）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>若干注意缺陷或多动—冲动的症状在12岁前就已出现。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>若干注意缺陷或多动—冲动的症状出现在两种或更多情境中（例如，在家里、学校或工作中；与朋友或亲属在一起时；在其他活动中）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>有明确的证据显示这些症状干扰或降低了社交、学业或职业功能的质量。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这些症状不仅仅出现在精神分裂症或其他精神病性障碍的病程中，也不能用其他精神障碍来更好地解释（例如，心境障碍、焦虑障碍、分离障碍、人格障碍、物质中毒或戒断）。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="criteria-item">组合表现：如果在过去6个月内，同时符合诊断标准A1（注意缺陷）和诊断标准A2（多动—冲动）。</div>
+<div class="criteria-item">主要表现为注意缺陷：如果在过去的6个月内，符合诊断标准A1（注意缺陷）但不符合诊断标准A2（多动—冲动）。</div>
+<div class="criteria-item">主要表现为多动/冲动：如果在过去的6个月内，符合诊断标准A2（多动—冲动）但不符合诊断标准A1（注意缺陷）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
+
+                    </div>
+                </div>
 
                 <div class="disorder-card" data-name="孤独症谱系障碍">
                     <div class="disorder-name">孤独症谱系障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>在多种场所下，社会交往和社交互动方面存在持续性的缺陷，表现为目前或历史中的下列情况（以下为示范性举例，而非详尽列举；见DSM-5正文）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 社交情感互惠方面的缺陷；从异常的社交接触和不能正常地来回对话，到兴趣、情绪或情感分享的减少，或者不能启动或对社交互动做出回应。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 在社交互动中使用非语言交流行为的缺陷，例如，从语言和非语言交流的整合困难，到异常的眼神接触和身体语言，到理解和使用手势方面的缺陷，或者到面部表情和非语言交流的完全缺失。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 发展、维持和理解人际关系的缺陷，例如，从难以调整自己的行为以适应各种社交情境，到难以分享想象的游戏或交友困难，到对同伴缺乏兴趣。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>受限的、重复的行为模式、兴趣或活动，表现为目前或历史上的至少下列2项情况（以下例子为示范性举例，而非全部列举；见DSM-5正文）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 刻板或重复的躯体运动、物体使用或言语（例如，简单的躯体刻板运动、摆放玩具或翻转物体、模仿言语、特殊短语）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 坚持相同性，缺乏弹性地固守常规或者仪式化的语言或非语言的行为模式（例如，对微小的改变极端痛苦、难以转变、僵化的思维模式、仪式化的问候、需要走相同的路线或每天吃同样的食物）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 高度受限的、固定的兴趣，其强度和专注度方面是异常的（例如，对不寻常物体的强烈依恋或先占观念，过度局限或持续的兴趣）。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 对感觉输入的过度反应或反应不足，或在对环境的感受方面不同寻常的兴趣（例如，对疼痛/温度明显地漠不关心，对特定的声音或质地的不良反应，对物体过度地嗅或触摸，对光线或运动着迷）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>症状必须存在于发育早期（但是，直到社交需求超过有限的能力时，缺陷可能才会完全表现出来，或可能被后天学会的策略所掩盖）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>这些症状造成社交、职业或目前其他重要功能方面的有明显临床意义的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>这些症状不能用智力障碍或全面发育迟缓来更好地解释。智力障碍和孤独症谱系障碍经常共同出现；做出孤独症谱系障碍和智力障碍的合并诊断时，其社会交往（标准A）必须低于预期的总体发育水平。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            在多种场所下，社会交往和社交互动方面存在持续性的缺陷，表现为目前或历史中的下列情况（以下为示范性举例，而非详尽列举；见DSM-5正文）：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            受限的、重复的行为模式、兴趣或活动，表现为目前或历史上的至少下列2项情况（以下例子为示范性举例，而非全部列举；见DSM-5正文）：
-                        </li>
+                <div class="disorder-card" data-name="智力障碍">
+                    <div class="disorder-name">智力障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item">智力障碍（智力发育障碍）是在发育阶段发生的障碍，包括智力和适应功能两方面的缺陷，表现在概念、社交和实用的领域中。必须符合下列3 项诊断标准：</div>
+<div class="criteria-item"><span class="criteria-letter">A.</span>经过临床评估和个体化、标准化的智力测评确认，存在智力功能缺陷，如推理、问题解决、计划、抽象思维、判断、学业学习和从经验中学习。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>适应功能的缺陷导致未能达到个体独立和社会责任方面的发育水平和社会文化标准。如果没有持续的支持，适应缺陷会导致一项或多项日常生活功能受限，如交流、社会参与和独立生活，且跨越多种环境，如家庭、学校、工作和社区。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>智力和适应缺陷在发育阶段发生。</div>
+<div class="criteria-item">基于适应功能（而不是单独的智商分数）和所需的支持水平，智力障碍的严重程度可分为轻度、中度、重度或极重度。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            症状必须存在于发育早期（但是，直到社交需求超过有限的能力时，缺陷可能才会完全表现出来，或可能被后天学会的策略所掩盖）。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            这些症状造成社交、职业或目前其他重要功能方面的有明显临床意义的损害。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            这些症状不能用智力障碍或全面发育迟缓来更好地解释。智力障碍和孤独症谱系障碍经常共同出现；做出孤独症谱系障碍和智力障碍的合并诊断时，其社会交往（标准A）必须低于预期的总体发育水平。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="特定学习障碍">
                     <div class="disorder-name">特定学习障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>学习和使用学业技能的困难，如存在至少1项下列所示的症状，且持续至少6个月，尽管针对这些困难提供了干预措施：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 不准确或缓慢而费力地读字（例如，读出单词时不正确或缓慢、犹豫、频繁地猜测，难以念出单词）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 难以理解所阅读内容的意思（例如，可以准确地读出文本但不能理解其顺序、关系、推论或更深层次的意义）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 拼写方面的困难（例如，可能添加、省略或替代元音或辅音）。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 书面表达方面的困难（例如，在句子中犯下多种语法或标点符号的错误；段落组织差；书面表达的思想不清晰）。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 难以掌握数字感、数字事实或计算（例如，数字理解能力差，不能区分数字的大小和关系；用手指加个位数而不是像同伴那样回忆数字事实；在算术计算中迷失，也可能转换步骤）。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 数学推理方面的困难（例如，应用数学概念、事实或步骤去解决数量问题有严重困难）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>受到影响的学业技能明显地、可量化地低于个体生理年龄的预期水平，明显地干扰了学业或职业表现或日常活动。技能损伤由单独进行的标准化成就测评和综合临床评估确认。对于17岁及以上的个体，关于损害性学习困难的病史记载可以代替标准化测评。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>学习方面的困难开始于学龄期，但直到对那些受影响的学业技能的要求超过个体的有限能力时，才会完全表现出来（例如，在限时测验中，读或写冗长、复杂的报告并有严格的截止日期，过于沉重的学业负担）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>学习困难不能用智力障碍、未校正的视力或听力，其他精神或神经病性障碍、心理社会的逆境、对学业指导所用的语言不熟练，或不充分的教育指导来更好地解释。</div>
+<div class="specifiers"><p>标注所有受损的学业领域和次级技能。当超过1个领域受损时，每一个都应根据下列标注单独编码。</p></div>
+<div class="specifiers"><p>伴阅读受损：</p></div>
+<div class="criteria-item">字词阅读的准确性</div>
+<div class="criteria-item">阅读速度或流畅性</div>
+<div class="criteria-item">阅读理解力</div>
+<div class="specifiers"><p>伴书面表达受损：</p></div>
+<div class="criteria-item">拼写准确性</div>
+<div class="criteria-item">语法和标点准确性</div>
+<div class="criteria-item">书面表达清晰度或条理性</div>
+<div class="specifiers"><p>伴数学受损：</p></div>
+<div class="criteria-item">数字感</div>
+<div class="criteria-item">算术事实的记忆力</div>
+<div class="criteria-item">计算的准确性或流畅性</div>
+<div class="criteria-item">数学推理的准确性</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            学习和使用学业技能的困难，如存在至少1项下列所示的症状，且持续至少6个月，尽管针对这些困难提供了干预措施：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            受到影响的学业技能明显地、可量化地低于个体生理年龄的预期水平，明显地干扰了学业或职业表现或日常活动。技能损伤由单独进行的标准化成就测评和综合临床评估确认。对于17岁及以上的个体，关于损害性学习困难的病史记载可以代替标准化测评。
-                        </li>
+                <div class="disorder-card" data-name="重度神经认知障碍（NCD）">
+                    <div class="disorder-name">重度神经认知障碍（NCD）</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>在一个或多个认知领域内（复杂的注意、执行功能、学习和记忆、语言、知觉运动或社会认知），与先前的表现水平相比存在明显的认知衰退，其证据基于：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 个体、知情人或临床医生对认知功能存在明显下降的担心；</div>
+<div class="criteria-item" style="margin-left:20px;">2. 认知表现多方面受损，最好能用标准化的神经心理测评证实，若无则用另一个量化的临床评估证实。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>认知缺陷干扰了日常活动的独立性（即最低限度而言，较为复杂的工具性日常生活活动需要帮助，如支付账单或管理药物）。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>认知缺陷不仅仅发生在谵妄的背景下。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>认知缺陷不能用其他精神障碍来更好地解释（例如，抑郁症、精神分裂症）。</div>
+<div class="criteria-item">注：神经认知障碍是根据它们的病因学亚型来界定的，如是否由下列疾病所致，例如：阿尔茨海默病、额颞叶退化、路易体病、创伤性脑损伤或物质/药物使用。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            学习方面的困难开始于学龄期，但直到对那些受影响的学业技能的要求超过个体的有限能力时，才会完全表现出来（例如，在限时测验中，读或写冗长、复杂的报告并有严格的截止日期，过于沉重的学业负担）。
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            学习困难不能用智力障碍、未校正的视力或听力，其他精神或神经病性障碍、心理社会的逆境、对学业指导所用的语言不熟练，或不充分的教育指导来更好地解释。
-                        </li>
+                <div class="disorder-card" data-name="谵妄">
+                    <div class="disorder-name">谵妄</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>注意障碍（即指向、聚焦、维持和转移注意的能力减弱）和环境定向及意识障碍（对环境的定向减弱）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>该障碍在较短时间内发生（通常为数小时到数天），表现为偏离注意和意识基线的变化，以及在一天中严重程度倾向于波动。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>额外的认知障碍（例如，记忆力缺陷，定向障碍，语言，视觉空间能力，或知觉）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>诊断标准A和C中的障碍不能用其他已患的、已经确定的，或正在发展中的神经认知障碍来更好地解释，也不是出现在唤醒水平严重降低的背景下，例如，昏迷。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>病史、体格检查或实验室发现的证据表明，该障碍是其他躯体疾病，物质中毒或戒断，或接触有毒物质，或多种病因导致的直接生理结果。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                    </ul>
-
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="11">
-                <h2 class="chapter-title">第11章 第11章</h2>
+                <h2 class="chapter-title">第11章 破坏性、冲动控制及品行障碍</h2>
 
                 <div class="disorder-card" data-name="品行障碍">
                     <div class="disorder-name">品行障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种侵犯他人的基本权利或违反与年龄匹配的主要社会规范或规则的反复的、持续的行为模式，在过去的12个月内，表现为下列任意类别的15项标准中的至少3项，且在过去的6个月内存在下列标准中的至少1项：</div>
+<div class="criteria-item">攻击人和动物</div>
+<div class="criteria-item" style="margin-left:20px;">1. 经常欺负、威胁或恐吓他人。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 经常引发打架。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 曾对他人使用可能引起严重躯体伤害的武器（例如，棍棒、砖块、破碎的瓶子、刀、枪）。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 曾残忍地伤害他人。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 曾残忍地伤害动物。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 曾当着受害者的面夺取（例如，抢劫、抢包、敲诈、持械抢劫）。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 曾强迫他人与自己发生性行为。</div>
+<div class="criteria-item">破坏财产</div>
+<div class="criteria-item" style="margin-left:20px;">8. 曾故意纵火企图造成严重的损失。</div>
+<div class="criteria-item" style="margin-left:20px;">9. 曾蓄意破坏他人财产（不包括纵火）。</div>
+<div class="criteria-item">欺诈或盗窃</div>
+<div class="criteria-item" style="margin-left:20px;">10. 曾破门闯入他人的房屋、建筑或汽车。</div>
+<div class="criteria-item" style="margin-left:20px;">11. 经常说谎以获得物品或好处或规避责任（即“哄骗”他人）。</div>
+<div class="criteria-item" style="margin-left:20px;">12. 曾盗窃值钱的物品，但没有当着受害者的面（例如，入店行窃，但没有破门而入；伪造）。</div>
+<div class="criteria-item">严重违反规则</div>
+<div class="criteria-item" style="margin-left:20px;">13. 尽管父母禁止，仍经常夜不归宿，在13岁前开始。</div>
+<div class="criteria-item" style="margin-left:20px;">14. 生活在父母或父母的代理人家里时，曾至少2次离家出走在外过夜，或曾1次长时间不回家。</div>
+<div class="criteria-item" style="margin-left:20px;">15. 在13岁前开始经常逃学。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>此行为障碍在社交、学业或职业功能方面引起有临床意义的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>如果个体的年龄为18岁或以上，则需不符合反社会型人格障碍的诊断标准。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            一种侵犯他人的基本权利或违反与年龄匹配的主要社会规范或规则的反复的、持续的行为模式，在过去的12个月内，表现为下列任意类别的15项标准中的至少3项，且在过去的6个月内存在下列标准中的至少1项：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            此行为障碍在社交、学业或职业功能方面引起有临床意义的损害。
-                        </li>
+                <div class="disorder-card" data-name="对立违抗障碍">
+                    <div class="disorder-name">对立违抗障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种愤怒/易激惹的心境，争辩/对抗的行为，或报复的模式，持续至少6个月，以下列任意类别中至少4项症状作为证据，并表现在与至少1个非同胞个体的互动中。</div>
+<div class="criteria-item">愤怒的/易激惹的心境</div>
+<div class="criteria-item" style="margin-left:20px;">1. 经常发脾气。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 经常是敏感的或易被惹恼的。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 经常是愤怒和怨恨的。</div>
+<div class="criteria-item">争辩/对抗的行为</div>
+<div class="criteria-item" style="margin-left:20px;">4. 经常与权威人士辩论，或儿童和青少年与成年人争辩。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 经常主动地对抗或拒绝遵守权威人士或规则的要求。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 经常故意惹恼他人。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 自己有错误或不当行为却经常指责他人。</div>
+<div class="criteria-item">报复</div>
+<div class="criteria-item" style="margin-left:20px;">8. 在过去的6个月内至少曾有2次是怀恨的或报复性的</div>
+<div class="criteria-item">注：这些行为的持续性和频率应被用来区分那些在正常范围内的行为与有问题的行为。对于年龄小于5岁的儿童，此行为应出现在至少6个月内的大多数日子里，除非另有说明（诊断标准A8）。对于5岁或年龄更大的个体，此行为应每周至少出现1次，且持续至少6个月，除非另有说明（诊断标准A8）。这些频率方面的标准为定义症状所需的最低频率提供了指南，但其他因素也应考虑在内，如此行为的频率和强度是否超出了个体的发育水平、性别和文化的正常范围。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>该行为障碍与个体或其身边的其他人（例如，家人、同伴、同事）的痛苦有关，或对社交、教育、职业或其他重要功能方面产生了负性影响。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>此行为不仅仅出现在精神病性、物质使用、抑郁或双相障碍的病程中，并且，也不符合破坏性心境失调障碍的诊断标准。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            如果个体的年龄为18岁或以上，则需不符合反社会型人格障碍的诊断标准。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="反社会型人格障碍">
                     <div class="disorder-name">反社会型人格障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种无视和侵犯他人权利的普遍模式，始于15岁，表现为下列三项（或更多）症状：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 不能遵守关于合法行为的社会规范，表现为反复做出会被逮捕的行为。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 欺骗性，表现为反复撒谎、用假名，或为个人利益或享乐而欺诈他人。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 冲动性或不能提前做出计划。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 易激惹和攻击性，表现为反复的斗殴或攻击。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 全然不顾自己或他人的安全。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 一贯不负责任，表现为重复性地不能保持稳定的工作表现或履行经济义务。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 缺乏懊悔之心，表现为做出伤害、虐待或偷窃他人的行为后不在乎，或将其合理化。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>个体至少18岁。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>有证据表明品行障碍始于15岁前。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>反社会行为并不仅仅出现在精神分裂症或双相障碍的病程内。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            一种无视和侵犯他人权利的普遍模式，始于15岁，表现为下列三项（或更多）症状：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            个体至少18岁。
-                        </li>
+                <div class="disorder-card" data-name="间歇性暴怒障碍">
+                    <div class="disorder-name">间歇性暴怒障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>代表攻击性冲动控制失败的反复行为爆发，表现为下列两项之一：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 言语攻击（例如，发脾气、言辞激烈的长篇大论、争论或吵架）或对财产、动物或他人的躯体攻击，持续三个月，平均每周出现两次。躯体性攻击没有导致财产的损坏或损毁，没有使动物或其他个体的身体受伤。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 在12个月内有三次行为爆发破坏导致财产损坏或损毁，和/或导致动物或他人身体受伤的攻击。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>反复爆发过程中所表现出的攻击性程度与受到的挑衅或任何心理社会的诱发应激源严重不成比例。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>反复的攻击性爆发是非预谋的（即冲动的和/或基于愤怒的），而不是为了达到某些实际的目的（例如金钱、权利、恐吓）。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>反复的攻击性爆发引起个体产生显著的痛苦，或导致职业或人际功能的损害，或者与财务或法律后果有关。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>实际年龄至少6岁（或同等发育水平）。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>反复的攻击性爆发不能用其他精神障碍来更好地解释（例如，抑郁症、双相障碍、破坏性情绪失调障碍、精神病性障碍、反社会型人格障碍、边缘型人格障碍），也不能归因于其他躯体疾病（例如，头部创伤、阿尔茨海默病）或某种物质（例如，滥用的毒品，药物）的生理效应。对6～18岁的儿童，其攻击性行为作为适应障碍的一部分出现时，不应考虑此诊断。</div>
+<div class="criteria-item">注：当反复的冲动性攻击爆发超出了注意缺陷/多动障碍、品行障碍、对立违抗障碍或孤独症谱系障碍中通常所见的程度，需要在临床上单独加以关注时，可同时做出此诊断。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            有证据表明品行障碍始于15岁前。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            反社会行为并不仅仅出现在精神分裂症或双相障碍的病程内。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="12">
-                <h2 class="chapter-title">第12章 第12章</h2>
+                <h2 class="chapter-title">第12章 进食障碍</h2>
 
                 <div class="disorder-card" data-name="神经性厌食症">
                     <div class="disorder-name">神经性厌食症</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>相对于需求而言，在年龄、性别、发育轨迹和身体健康的背景下，出现了因限制能量的摄取而导致明显的低体重。明显的低体重被定义为低于正常体重的最低值或低于儿童和青少年的最低预期值。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>即使处于显著的低体重，仍然强烈害怕体重增加或变胖，或有持续的影响体重增加的行为。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>对自己的体重或体型的体验障碍，体重或体型对自我评价的不当影响，或持续地缺乏对目前低体重的严重性的认识。</div>
+<div class="specifiers"><p>明确现有亚型：</p></div>
+<div class="criteria-item">限制型：在过去3个月内，个体没有反复的暴食或清除行为（即，自我引吐或滥用泻药、利尿剂或灌肠）。体重减轻主要通过节食、禁食和/或过量运动而达成。</div>
+<div class="criteria-item">暴食/清除型：在过去3个月内，个体有反复的暴食或清除行为（即，自我引吐或滥用泻药、利尿剂或灌肠）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            相对于需求而言，在年龄、性别、发育轨迹和身体健康的背景下，出现了因限制能量的摄取而导致明显的低体重。明显的低体重被定义为低于正常体重的最低值或低于儿童和青少年的最低预期值。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            即使处于显著的低体重，仍然强烈害怕体重增加或变胖，或有持续的影响体重增加的行为。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            对自己的体重或体型的体验障碍，体重或体型对自我评价的不当影响，或持续地缺乏对目前低体重的严重性的认识。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="神经性贪食症">
                     <div class="disorder-name">神经性贪食症</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复发作的暴食。暴食发作以下列2项为特征：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 在一段固定的时间内（例如，在任意2小时内）进食，食物量明显大于大多数人在相似时间段内和相似场合下的进食量。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 发作时感到无法控制进食（例如，感觉不能停止进食或控制进食品种或进食数量）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>反复出现不恰当的代偿行为以预防体重增加，例如自我引吐，滥用泻药、利尿剂或其他药物，禁食或过度锻炼。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>暴食和不恰当的代偿行为同时出现，并且出现频率维持在3个月内平均每周至少1次。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>自我评价受到身体体型和体重的过度影响。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>该障碍并非仅仅出现在神经性厌食症的发作期。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            反复发作的暴食。暴食发作以下列2项为特征：
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            反复出现不恰当的代偿行为以预防体重增加，例如自我引吐，滥用泻药、利尿剂或其他药物，禁食或过度锻炼。
-                        </li>
+                <div class="disorder-card" data-name="暴食障碍">
+                    <div class="disorder-name">暴食障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复发作的暴食。暴食发作以下列2项为特征：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 在一段固定的时间内（例如，在任意2小时内）进食，食物量明显大于大多数人在相似时间段内和相似场合下的进食量。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 发作时感到无法控制进食（例如，感觉不能停止进食或控制进食品种或进食数量）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>暴食发作与下列3项（或更多）有关：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 进食比正常情况快得多。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 进食直到撑得难受为止。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 在没有感到身体饥饿时进食大量食物。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 因进食过多感到尴尬而单独进食。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 进食之后感到厌恶自己、抑郁或非常内疚。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>对暴食感到显著的痛苦。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>在3个月内平均每周至少出现1次暴食。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>暴食与神经性贪食症中反复出现的不恰当的代偿行为无关，也并非仅仅出现在神经性贪食或神经性厌食的病程中。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition. Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            暴食和不恰当的代偿行为同时出现，并且出现频率维持在3个月内平均每周至少1次。
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            自我评价受到身体体型和体重的过度影响。
-                        </li>
+            </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            该障碍并非仅仅出现在神经性厌食症的发作期。
-                        </li>
+            <div class="chapter-section" data-chapter="13">
+                <h2 class="chapter-title">第13章 性障碍</h2>
 
-                    </ul>
+                <div class="disorder-card" data-name="青少年或成年人性别烦躁">
+                    <div class="disorder-name">青少年或成年人性别烦躁</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>个体体验表达的性别与出生性别之间显著地不一致，持续至少6个月，表现为下列至少2项：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 个体体验表达的性别与第一和/或第二性征之间明显地不一致（或在青少年早期，则为预期的第二性征）。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 由于与体验表达的性别明显地不一致，因而产生去除自己的第一和/或第二性征的强烈欲望（或在青少年早期，防止预期的第二性征发育的欲望）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 对拥有另一种性别的第一和/或第二性征有着强烈的欲望。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 成为另一种性别的强烈欲望（或与出生性别不同的某种替代性别）。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 希望被视为另一种性别的强烈欲望（或与出生性别不同的某种替代性别）。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 深信自己拥有另一种性别的典型感觉和反应（或与出生性别不同的某种替代性别）。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>该疾病与有临床意义的痛苦或者社交、职业或其他重要功能方面的损害有关。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="chapter-section" data-chapter="14">
+                <h2 class="chapter-title">第14章 物质使用和赌博障碍</h2>
+
+                <div class="disorder-card" data-name="赌博障碍">
+                    <div class="disorder-name">赌博障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>持久的和反复的有问题的赌博行为，引起有临床意义的损害或心理痛苦，个体在12个月内出现下列4项（或更多）特征：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 需要加大赌注去赌博以实现期待的兴奋。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 试图减少或停止赌博时，出现坐立不安或易激惹。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 反复的失败的控制、减少或停止赌博的努力。</div>
+<div class="criteria-item" style="margin-left:20px;">4. 沉湎于赌博（例如，持久的重温过去赌博的出现，预测赌博结果或计划下一次赌博，想尽办法获得金钱去赌博）。</div>
+<div class="criteria-item" style="margin-left:20px;">5. 感到痛苦时经常赌博（例如，无助、内疚、焦虑、抑郁）。</div>
+<div class="criteria-item" style="margin-left:20px;">6. 赌博输钱之后，经常在另一天返回去想赢回来（“追回”损失）。</div>
+<div class="criteria-item" style="margin-left:20px;">7. 对参与赌博的程度撒谎。</div>
+<div class="criteria-item" style="margin-left:20px;">8. 因为赌博而已经损害或失去一个重要的关系、工作或者教育或事业机会。</div>
+<div class="criteria-item" style="margin-left:20px;">9. 依靠他人提供金钱来缓解赌博造成的严重财务状况。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>赌博行为不能用躁狂发作来更好地解释。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">阵发性：符合诊断标准超过1次以上，在赌博障碍发作之间，其症状至少有几个月的时间是减轻的。</div>
+<div class="criteria-item">持续性：出现持久的症状，且符合诊断标准几年。</div>
+<div class="criteria-item">严重程度：轻度（符合4～5项标准）；中度（符合6～7项标准）；重度（符合8～9项标准）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
                 </div>
 
             </div>
 
             <div class="chapter-section" data-chapter="15">
-                <h2 class="chapter-title">第15章 第15章</h2>
+                <h2 class="chapter-title">第15章 健康心理学</h2>
+
+                <div class="disorder-card" data-name="失眠障碍">
+                    <div class="disorder-name">失眠障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>主诉对睡眠数量或质量不满意，并伴有下列1项（或更多）症状：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 入睡困难。（儿童可能表现为在没有照料者干预下的情况下入睡困难。）</div>
+<div class="criteria-item" style="margin-left:20px;">2. 睡眠维持困难，其特征表现为频繁地觉醒或醒后再入睡困难。（儿童可能表现为在没有照料者干预的情况下再入睡困难。）</div>
+<div class="criteria-item" style="margin-left:20px;">3. 早醒，且不能再入睡。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>睡眠紊乱引起显著临床意义上的痛苦，或导致社交、职业、教育、学业、行为或其他重要功能的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>每周至少出现3晚睡眠困难。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>至少3个月存在睡眠困难。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>尽管有足够的睡眠机会，仍然出现睡眠困难。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>失眠不能更好地用另一种睡眠–觉醒障碍来解释，也不仅仅是出现在另一种睡眠–觉醒障碍的病程中（例如，发作性睡病、与呼吸相关的睡眠障碍、昼夜节律睡眠–觉醒障碍、睡眠异态）。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>失眠不能归因于某种物质的生理效应（例如，滥用的毒品、药物）。</div>
+<div class="criteria-item"><span class="criteria-letter">H.</span>共存的精神障碍和躯体状况不能充分解释失眠的主诉。</div>
+<div class="specifiers"><p>标注是否：</p></div>
+<div class="specifiers"><p>伴非睡眠障碍的精神共病，包括物质使用障碍</p></div>
+<div class="specifiers"><p>伴其他医学共病</p></div>
+<div class="specifiers"><p>伴其他睡眠障碍</p></div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
+
+                    </div>
+                </div>
 
                 <div class="disorder-card" data-name="嗜睡障碍">
                     <div class="disorder-name">嗜睡障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>尽管主要睡眠周期持续至少7小时，依然自我报告过度困倦（嗜睡），至少有下列1项症状:</div>
+<div class="criteria-item" style="margin-left:20px;">1. 在同一天内反复睡眠或陷入睡眠之中。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 每天的主要睡眠周期延长至9小时以上，且为非恢复性的（即不能恢复精神）。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 突然觉醒后难以完全清醒。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>嗜睡每周至少出现3次，持续至少3个月。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>嗜睡伴有显著的痛苦，或导致认知、社交、职业或其他重要功能的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>嗜睡不能更好地用另一种睡眠障碍来解释，也不仅仅出现在另一种睡眠障碍的病程中（例如，发作性睡病、与呼吸相关的睡眠障碍、昼夜节律睡眠–觉醒障碍或睡眠异态）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>嗜睡不能归因于某种物质的生理效应（例如，滥用的毒品、药物）</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>共存的精神障碍和躯体状况不能充分解释嗜睡的主诉。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            尽管主要睡眠周期持续至少7小时，依然自我报告过度困倦（嗜睡），至少有下列1项症状:
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            嗜睡每周至少出现3次，持续至少3个月。
-                        </li>
+                <div class="disorder-card" data-name="发作性睡病">
+                    <div class="disorder-name">发作性睡病</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>在同一天内反复地抑制不住地需要睡眠、陷入睡眠或打盹。在过去3个月内每周必须出现至少3次。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>存在下列至少1项：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 猝倒发作，定义为（a）或（b），每月至少出现几次：</div>
+<div class="criteria-item">a. 长期患病的个体中，短暂（数秒到数分钟）发作性双侧肌张力丧失，但维持意识清醒状态，可由大笑或开玩笑诱发。</div>
+<div class="criteria-item">b. 儿童或个体在起病的6个月内，无意识地扮鬼脸或下颌张开发作，伴吐舌或全面张力减退，且无任何明显的情绪诱因。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 下丘脑分泌素缺乏，采用脑脊液（CSF）测量下丘脑分泌素–1的免疫反应值（使用相同的测定法，小于或等于健康受试者三分之一的数值，或者小于或等于110皮克/毫升）。脑脊液的下丘脑分泌素–1测试水平低，不能是在急性脑损伤、炎症反应或感染的背景下观察到的。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 夜间多导睡眠图显示快速眼动睡眠潜伏期小于或等于15分钟，或多次睡眠潜伏期测试显示平均睡眠潜伏期小于或等于8分钟，以及2次或更多次睡眠起始期快速眼动睡眠。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            嗜睡伴有显著的痛苦，或导致认知、社交、职业或其他重要功能的损害。
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            嗜睡不能更好地用另一种睡眠障碍来解释，也不仅仅出现在另一种睡眠障碍的病程中（例如，发作性睡病、与呼吸相关的睡眠障碍、昼夜节律睡眠–觉醒障碍或睡眠异态）。
-                        </li>
+                <div class="disorder-card" data-name="与呼吸相关的睡眠障碍">
+                    <div class="disorder-name">与呼吸相关的睡眠障碍</div>
+                    <div class="criteria-list">
+<div class="criteria-item">障碍	DSM-5诊断标准</div>
+<div class="criteria-item">中枢性睡眠呼吸暂停  	  A. 由多导睡眠图提供的每小时睡眠有5次或更多的中枢性呼吸暂停的证据。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>此障碍不能更好地用另一种目前的睡眠障碍来解释。</div>
+<div class="criteria-item">睡眠相关的通气不足  	  A. 多导睡眠图证明间歇性的与CO2浓度升高相关联的呼吸减少。（注：在缺乏客观的CO2测量指标的情况下，持续的低水平血红蛋白氧饱和度不伴有呼吸暂停/低通气,可能表示通气不足。）</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>此现象不能更好地用另一种目前的睡眠障碍来解释。</div>
+<div class="criteria-item">阻塞性睡眠呼吸暂停/低通气  	  （1）或者（2）：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 由多导睡眠图提供的每小时睡眠至少有5次阻塞性睡眠呼吸暂停或低通气的证据，以及下列睡眠症状之一：</div>
+<div class="criteria-item">a. 夜间呼吸紊乱：打鼾、打鼾/喘息，或在睡眠时呼吸暂停。</div>
+<div class="criteria-item">b. 日间困倦、疲劳或尽管有充足的睡眠机会，但睡眠仍不能让人精神焕发，且不能更好地用另一种精神障碍来解释（包括某种睡眠障碍），也并非另一种躯体状况所致。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 由多导睡眠图提供的每小时睡眠有15次或更多的阻塞性呼吸暂停和/或低通气的证据，无论伴随症状如何。</div>
+<div class="specifiers"><p>标注目前的严重程度：</p></div>
+<div class="criteria-item">轻度：呼吸暂停低通气指数少于15。</div>
+<div class="criteria-item">中度：呼吸暂停低通气指数为15 ～ 30。</div>
+<div class="criteria-item">重度：  呼吸暂停低通气指数多于30。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源： Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            嗜睡不能归因于某种物质的生理效应（例如，滥用的毒品、药物）
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">F.</span>
-                            共存的精神障碍和躯体状况不能充分解释嗜睡的主诉。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="昼夜节律睡眠-觉醒障碍">
                     <div class="disorder-name">昼夜节律睡眠-觉醒障碍</div>
-                    <ul class="criteria-list">
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            一种持久或反复发作的睡眠中断模式，主要是由于昼夜节律系统的改变，或者是内源性昼夜节律与个体的物理环境或社交或职业时间表所要求的睡眠–觉醒周期之间的错位。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            睡眠中断导致过度的睡意或失眠，或两者兼有。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            睡眠紊乱引起有临床意义的痛苦，或导致社交、职业或其他重要功能的损害。
-                        </li>
-
-                    </ul>
-
-                    <div class="specifiers">
-                        <div class="specifiers-title">标注说明：</div>
-                        <p>家族型：存在睡眠时相延迟的家族史。
-标注如果是：
-与非24小时睡眠–觉醒重叠型：睡眠时相延迟型可能与另一种昼夜节律睡眠–觉醒障碍——非24小时睡眠–觉醒障碍——重叠。
-睡眠时相提前型：一种睡眠起始和觉醒时间提前的模式，且不能保持觉醒或睡眠到期望的或常规可接受的较晚的入睡或觉醒时间。
-标注如果是：
-家族型：存在睡眠时相提前的家族史。
-睡眠–觉醒不规则型：一种暂时混乱的睡眠–觉醒模式，以致睡眠和觉醒的时段可在24小时周期内的任何时间改变。
-非24小时睡眠–觉醒型：一种睡眠–觉醒周期与24小时的环境不同步的模式，伴持续的每日睡眠起始和觉醒时间的漂移（通常为越来越晚）。
-倒班工作型：与倒班工作时间表（即要求非常规的工作时间）相关的，在主要的睡眠时段失眠和/或在主要觉醒时段过度有睡意（包括无意的睡眠）。
-未特定型
-标注如果是：
-间歇性：症状持续至少1个月，但少于3个月。
-持续性：症状持续3个月或更长。
-复发性：1年内发作2次或更多。</p>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>一种持久或反复发作的睡眠中断模式，主要是由于昼夜节律系统的改变，或者是内源性昼夜节律与个体的物理环境或社交或职业时间表所要求的睡眠–觉醒周期之间的错位。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>睡眠中断导致过度的睡意或失眠，或两者兼有。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>睡眠紊乱引起有临床意义的痛苦，或导致社交、职业或其他重要功能的损害。</div>
+<div class="specifiers"><p>标注是否是：</p></div>
+<div class="criteria-item">睡眠时相延迟型：一种睡眠起始和觉醒时间延迟的模式，不能在期望的或常规可接受的较早时间入睡和觉醒。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">家族型：存在睡眠时相延迟的家族史。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">与非24小时睡眠–觉醒重叠型：睡眠时相延迟型可能与另一种昼夜节律睡眠–觉醒障碍——非24小时睡眠–觉醒障碍——重叠。</div>
+<div class="criteria-item">睡眠时相提前型：一种睡眠起始和觉醒时间提前的模式，且不能保持觉醒或睡眠到期望的或常规可接受的较晚的入睡或觉醒时间。</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">家族型：存在睡眠时相提前的家族史。</div>
+<div class="criteria-item">睡眠–觉醒不规则型：一种暂时混乱的睡眠–觉醒模式，以致睡眠和觉醒的时段可在24小时周期内的任何时间改变。</div>
+<div class="criteria-item">非24小时睡眠–觉醒型：一种睡眠–觉醒周期与24小时的环境不同步的模式，伴持续的每日睡眠起始和觉醒时间的漂移（通常为越来越晚）。</div>
+<div class="criteria-item">倒班工作型：与倒班工作时间表（即要求非常规的工作时间）相关的，在主要的睡眠时段失眠和/或在主要觉醒时段过度有睡意（包括无意的睡眠）。</div>
+<div class="criteria-item">未特定型</div>
+<div class="specifiers"><p>标注如果是：</p></div>
+<div class="criteria-item">间歇性：症状持续至少1个月，但少于3个月。</div>
+<div class="criteria-item">持续性：症状持续3个月或更长。</div>
+<div class="criteria-item">复发性：1年内发作2次或更多。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.</p></div>
 
                     </div>
-
                 </div>
 
                 <div class="disorder-card" data-name="非快速眼动睡眠唤醒障碍">
                     <div class="disorder-name">非快速眼动睡眠唤醒障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复发作的从睡眠中不完全觉醒，通常出现在主要睡眠周期的前三分之一，并伴有下列任一项症状：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 睡行：反复发作的睡觉时从床上起来和走动。睡行时，个体面无表情、目不转睛，对于他人与其沟通的努力相对无反应，唤醒个体存在巨大的困难。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 睡惊：反复发作的从睡眠中突然惊醒，通常始于恐慌的尖叫。每次发作时有强烈的恐惧感和自主神经唤起的体征，如瞳孔散大、心动过速、呼吸急促、出汗。发作时，个体对于他人安慰的努力相对无反应。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>没有或很少（例如，只有一个视觉场景）有梦境能被回忆起来。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>存在对发作的遗忘。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>此发作引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>共存的精神或躯体障碍不能解释睡行或睡惊的出现。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            反复发作的从睡眠中不完全觉醒，通常出现在主要睡眠周期的前三分之一，并伴有下列任一项症状：
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            没有或很少（例如，只有一个视觉场景）有梦境能被回忆起来。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            存在对发作的遗忘。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            此发作引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">F.</span>
-                            共存的精神或躯体障碍不能解释睡行或睡惊的出现。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="快速眼动睡眠行为障碍">
                     <div class="disorder-name">快速眼动睡眠行为障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>睡眠中反复发作的与发声和/或复杂的运动行为有关的唤醒。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>这些行为在快速眼动睡眠期出现，因此通常出现在睡眠开始超过90分钟以后，且在睡眠时间的后期更频繁，在白天打盹时不常出现。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>一旦从这些发作中觉醒，个体会完全清醒、警觉，而不是意识模糊或失去定向。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>下列任1项表现：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 在多导睡眠图记录中，快速眼动睡眠期无张力缺乏。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 病史提示有快速眼动睡眠行为障碍和已明确的突触核蛋白病的诊断（例如，帕金森氏病、多系统萎缩）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>此行为引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害（可能包括伤害自己或同睡一床的人）。</div>
+<div class="criteria-item"><span class="criteria-letter">F.</span>该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体状况。</div>
+<div class="criteria-item"><span class="criteria-letter">G.</span>共存的精神和躯体障碍不能解释此发作。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            睡眠中反复发作的与发声和/或复杂的运动行为有关的唤醒。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            这些行为在快速眼动睡眠期出现，因此通常出现在睡眠开始超过90分钟以后，且在睡眠时间的后期更频繁，在白天打盹时不常出现。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            一旦从这些发作中觉醒，个体会完全清醒、警觉，而不是意识模糊或失去定向。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            下列任1项表现：
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            此行为引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害（可能包括伤害自己或同睡一床的人）。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">F.</span>
-                            该障碍不能归因于某种物质（例如，滥用的毒品、药物）的生理效应或其他躯体状况。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">G.</span>
-                            共存的精神和躯体障碍不能解释此发作。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
                 <div class="disorder-card" data-name="梦魇障碍">
                     <div class="disorder-name">梦魇障碍</div>
-                    <ul class="criteria-list">
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>反复出现延长的、极端烦躁和能够详细记忆的梦，通常涉及努力避免对生存、安全和躯体完整性的威胁，且一般发生在主要睡眠期的后半程。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>从烦躁的睡梦中觉醒，个体能够很快恢复定向和警觉。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>该睡眠障碍引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>梦魇症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>共存的精神和躯体障碍不能充分解释烦躁梦境的主诉。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">A.</span>
-                            反复出现延长的、极端烦躁和能够详细记忆的梦，通常涉及努力避免对生存、安全和躯体完整性的威胁，且一般发生在主要睡眠期的后半程。
-                        </li>
+                    </div>
+                </div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">B.</span>
-                            从烦躁的睡梦中觉醒，个体能够很快恢复定向和警觉。
-                        </li>
+                <div class="disorder-card" data-name="不安腿综合征">
+                    <div class="disorder-name">不安腿综合征</div>
+                    <div class="criteria-list">
+<div class="criteria-item"><span class="criteria-letter">A.</span>移动双腿的冲动，通常伴有腿部不舒服和不愉快的感觉或是对此做出的反应，表现为下列所有特征：</div>
+<div class="criteria-item" style="margin-left:20px;">1. 移动双腿的冲动，在休息或不活动时开始或加重。</div>
+<div class="criteria-item" style="margin-left:20px;">2. 移动双腿的冲动，通过运动可部分或完全缓解。</div>
+<div class="criteria-item" style="margin-left:20px;">3. 移动双腿的冲动，在傍晚或夜间比白天更严重，或只在傍晚或夜间出现。</div>
+<div class="criteria-item"><span class="criteria-letter">B.</span>诊断标准A所列症状每周至少出现3次，持续至少3个月。</div>
+<div class="criteria-item"><span class="criteria-letter">C.</span>诊断标准A所列症状引起显著痛苦，或导致社交、职业、教育、学业、行为或其他重要功能方面的损害。</div>
+<div class="criteria-item"><span class="criteria-letter">D.</span>诊断标准A所列症状不能归因于其他精神障碍或躯体疾病（例如，关节炎、下肢水肿、外周缺血、下肢痉挛），也不能用行为状况来更好地解释（例如，体位性不适、习惯性顿足）。</div>
+<div class="criteria-item"><span class="criteria-letter">E.</span>此症状不能归因于滥用的毒品或药物的生理效应（例如，静坐不能）。</div>
+<div class="specifiers"><div class="specifiers-title">资料来源</div><p>资料来源：Reprinted with permission from the Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition.Copyright © 2013 American Psychiatric Association.</p></div>
 
-                        <li class="criteria-item">
-                            <span class="criteria-letter">C.</span>
-                            该睡眠障碍引起有临床意义的痛苦，或导致社交、职业或其他重要功能方面的损害。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">D.</span>
-                            梦魇症状不能归因于某种物质（例如，滥用的毒品、药物）的生理效应。
-                        </li>
-
-                        <li class="criteria-item">
-                            <span class="criteria-letter">E.</span>
-                            共存的精神和躯体障碍不能充分解释烦躁梦境的主诉。
-                        </li>
-
-                    </ul>
-
+                    </div>
                 </div>
 
             </div>
@@ -877,49 +1136,25 @@
     </div>
     
     <script>
-        // 搜索功能
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const cards = document.querySelectorAll('.disorder-card');
-            
             cards.forEach(card => {
                 const name = card.dataset.name.toLowerCase();
-                if (name.includes(searchTerm) || searchTerm === '') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = name.includes(searchTerm) || searchTerm === '' ? 'block' : 'none';
             });
         });
         
-        // 章节筛选
         const navTabs = document.querySelectorAll('.nav-tab');
         navTabs.forEach(tab => {
             tab.addEventListener('click', function() {
-                // 更新活动状态
                 navTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
-                
                 const chapter = this.dataset.chapter;
                 const sections = document.querySelectorAll('.chapter-section');
-                
                 sections.forEach(section => {
-                    if (chapter === 'all' || section.dataset.chapter === chapter) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                    section.style.display = chapter === 'all' || section.dataset.chapter === chapter ? 'block' : 'none';
                 });
             });
         });
