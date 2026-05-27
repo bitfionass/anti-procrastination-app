@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和拖延say拜拜 — 产品说明与开发文档</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0 30px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .nav a:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            font-size: 1.5em;
+            color: #6C63FF;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .card h3 {
+            font-size: 1.2em;
+            color: #444;
+            margin: 20px 0 10px;
+        }
+        .card p, .card li {
+            line-height: 1.8;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .card ul, .card ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .card li { margin-bottom: 6px; }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat .num {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .stat .label {
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .feature {
+            background: #f8f9ff;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #6C63FF;
+        }
+        .feature .icon {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+        .feature .title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .feature .desc {
+            font-size: 0.85em;
+            color: #666;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #6C63FF, #764ba2);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background: #f8f9ff;
+            border-radius: 12px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #6C63FF;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #6C63FF;
+        }
+        .timeline-item .time {
+            font-size: 0.8em;
+            color: #6C63FF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .timeline-item .title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .timeline-item .desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9ff;
+            color: #6C63FF;
+            font-weight: 600;
+        }
+        tr:hover td { background: #fafbff; }
+        .cta {
+            text-align: center;
+            padding: 30px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, #6C63FF 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(108,99,255,0.4);
+            transition: all 0.3s;
+        }
+        .cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(108,99,255,0.5);
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85em;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6em; }
+            .card { padding: 20px; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="hero">
+        <h1>和拖延say拜拜 👋</h1>
+        <p>基于AI的大学生拖延行为干预工具</p>
+        <div class="nav">
+            <a href="#features">功能介绍</a>
+            <a href="#research">调研数据</a>
+            <a href="#dev">开发过程</a>
+            <a href="#try">立即体验</a>
+        </div>
+    </div>
+
+    <!-- 项目概况 -->
+    <div class="card">
+        <h2>📋 项目概况</h2>
+        <p>《和拖延say拜拜》是一款针对大学生拖延行为的干预工具。基于对114名大学生的调研数据，采用"AI任务拆解 + 5分钟启动器 + 即时反馈 + 电子宠物"的组合干预方案，帮助用户克服启动困难、情绪逃避等拖延核心问题。</p>
+        
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="num">86.8%</div>
+                <div class="label">大学生存在拖延</div>
+            </div>
+            <div class="stat">
+                <div class="num">44.7%</div>
+                <div class="label">最大痛点：启动难</div>
+            </div>
+            <div class="stat">
+                <div class="num">64.0%</div>
+                <div class="label">需要即时反馈</div>
+            </div>
+            <div class="stat">
+                <div class="num">56.1%</div>
+                <div class="label">希望AI拆任务</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 功能介绍 -->
+    <div class="card" id="features">
+        <h2>🚀 核心功能</h2>
+        <div class="feature-list">
+            <div class="feature">
+                <div class="icon">🤖</div>
+                <div class="title">AI任务拆解</div>
+                <div class="desc">输入"写论文"等模糊任务，AI自动拆解为5-8个具体步骤，降低启动心理门槛</div>
+            </div>
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <div class="title">5分钟启动器</div>
+                <div class="desc">点击"先做5分钟"，专注第一步，倒计时结束后自动鼓励，突破情绪逃避</div>
+            </div>
+            <div class="feature">
+                <div class="icon">📊</div>
+                <div class="title">进度反馈</div>
+                <div class="desc">实时进度条、勋章解锁、成就海报，每一步都有正向反馈</div>
+            </div>
+            <div class="feature">
+                <div class="icon">🐾</div>
+                <div class="title">电子宠物</div>
+                <div class="desc">完成任务获得食物喂养宠物，宠物心情值和成长等级随你的进步而提升</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 调研数据 -->
+    <div class="card" id="research">
+        <h2>📊 调研数据（114份问卷）</h2>
+        
+        <h3>拖延现状</h3>
+        <table>
+            <tr><th>拖延频率</th><th>占比</th><th>说明</th></tr>
+            <tr><td>偶尔拖延</td><td>42.98%</td><td>只在特定情况下拖延</td></tr>
+            <tr><td>经常拖延</td><td>43.86%</td><td>大部分任务都会拖延</td></tr>
+            <tr><td>严重拖延</td><td>12.28%</td><td>几乎所有任务都拖延</td></tr>
+            <tr><td>从不拖延</td><td>0.88%</td><td>仅出现在27岁以上群体</td></tr>
+        </table>
+
+        <h3>拖延原因分析</h3>
+        <table>
+            <tr><th>原因</th><th>占比</th></tr>
+            <tr><td>情绪上想逃避（畏难）</td><td>38.6%</td></tr>
+            <tr><td>不知道从哪里开始</td><td>25.44%</td></tr>
+            <tr><td>觉得时间还够</td><td>19.3%</td></tr>
+            <tr><td>完美主义，怕做不好</td><td>16.67%</td></tr>
+        </table>
+
+        <h3>用户需求</h3>
+        <table>
+            <tr><th>需求</th><th>占比</th></tr>
+            <tr><td>每完成一小步就有进度条或勋章</td><td>64.04%</td></tr>
+            <tr><td>手机玩超时能自动提醒</td><td>60.53%</td></tr>
+            <tr><td>AI把模糊任务拆成具体步骤</td><td>56.14%</td></tr>
+            <tr><td>先做5分钟的启动引导</td><td>50.88%</td></tr>
+        </table>
+    </div>
+
+    <!-- 产品设计 -->
+    <div class="card">
+        <h2>🎨 产品设计理念</h2>
+        <p>针对调研发现的三大核心痛点，设计了对应的干预方案：</p>
+        
+        <table>
+            <tr><th>痛点</th><th>解决方案</th><th>功能</th></tr>
+            <tr><td>不知从何开始（25.44%）</td><td>降低启动门槛</td><td>AI任务拆解</td></tr>
+            <tr><td>情绪逃避（38.6%）</td><td>最小化启动动作</td><td>5分钟启动器</td></tr>
+            <tr><td>缺少正反馈（64.04%）</td><td>即时视觉激励</td><td>进度条+勋章</td></tr>
+            <tr><td>情感陪伴缺失（19.3%）</td><td>拟人化激励</td><td>电子宠物</td></tr>
+        </table>
+
+        <h3>技术选型</h3>
+        <ul>
+            <li><strong>纯前端</strong>：HTML + CSS + JavaScript，零依赖，可直接打开</li>
+            <li><strong>数据存储</strong>：LocalStorage，无需服务器，刷新不丢失</li>
+            <li><strong>AI引擎</strong>：Mock模拟（可替换为真实AI API）</li>
+            <li><strong>部署方式</strong>：PWA（Progressive Web App），可安装到手机主屏幕</li>
+        </ul>
+    </div>
+
+    <!-- 开发过程 -->
+    <div class="card" id="dev">
+        <h2>🛠️ 开发过程</h2>
+        <p>项目从方案到成品，经历了系统化的开发流程，总耗时约2.5小时。</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time">阶段1 · 10分钟</div>
+                <div class="title">方案评审</div>
+                <div class="desc">对207行原始方案进行系统性评审，发现5个问题：数据矛盾、占比缺失、人员不匹配、优先级不明确、缺竞品分析</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段2 · 15分钟</div>
+                <div class="title">功能映射</div>
+                <div class="desc">将6个功能模块精简为4个MVP核心模块，确定技术选型：原生JS + LocalStorage + Mock AI</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段3 · 30分钟</div>
+                <div class="title">代码开发</div>
+                <div class="desc">逐模块编写前端代码：HTML结构 → CSS样式 → Mock AI引擎 → 电子宠物 → 主逻辑，共55KB代码</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段4 · 5分钟</div>
+                <div class="title">初版测试</div>
+                <div class="desc">启动本地HTTP服务器，验证页面加载和基础交互</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段5 · 20分钟</div>
+                <div class="title">视觉重设计</div>
+                <div class="desc">全面重构设计系统：CSS变量、渐变背景、毛玻璃效果、微交互动画，CSS从12KB扩展到17KB</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段6 · 15分钟</div>
+                <div class="title">功能测试</div>
+                <div class="desc">使用Playwright自动化测试，13/13测试用例全部通过</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段7 · 10分钟</div>
+                <div class="title">代码审查</div>
+                <div class="desc">检查DOM引用、CSS一致性、事件绑定、错误处理，无阻断性问题</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段8 · 15分钟</div>
+                <div class="title">PWA升级</div>
+                <div class="desc">添加Service Worker、manifest.json、App图标，支持安装到手机主屏幕</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段9 · 20分钟</div>
+                <div class="title">微信小程序版</div>
+                <div class="desc">将核心功能移植为微信小程序，11个文件，可在微信开发者工具直接运行</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段10 · 10分钟</div>
+                <div class="title">教学演示PPT</div>
+                <div class="desc">生成21页教学演示PPT，展示"从方案到App"的全流程</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">阶段11 · 5分钟</div>
+                <div class="title">打包部署</div>
+                <div class="desc">上传GitHub，部署到GitHub Pages，生成访问链接和二维码</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 技术亮点 -->
+    <div class="card">
+        <h2>💡 技术亮点</h2>
+        <div class="feature-list">
+            <div class="feature">
+                <div class="icon">📦</div>
+                <div class="title">零依赖</div>
+                <div class="desc">不需要npm/webpack/任何构建工具，直接打开就能用</div>
+            </div>
+            <div class="feature">
+                <div class="icon">🧩</div>
+                <div class="title">模块化</div>
+                <div class="desc">MockAI和PetSystem是独立模块，可单独替换为真实API</div>
+            </div>
+            <div class="feature">
+                <div class="icon">💾</div>
+                <div class="title">数据持久化</div>
+                <div class="desc">LocalStorage自动保存，刷新不丢失</div>
+            </div>
+            <div class="feature">
+                <div class="icon">📱</div>
+                <div class="title">移动优先</div>
+                <div class="desc">480px宽度设计，响应式布局，手机体验优先</div>
+            </div>
+            <div class="feature">
+                <div class="icon">🔌</div>
+                <div class="title">双端覆盖</div>
+                <div class="desc">PWA + 微信小程序，覆盖iOS/Android/微信生态</div>
+            </div>
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <div class="title">渐进增强</div>
+                <div class="desc">核心功能不依赖动画/特效，低端设备也能用</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 项目团队 -->
+    <div class="card">
+        <h2>👥 项目信息</h2>
+        <table>
+            <tr><th>项目</th><th>内容</th></tr>
+            <tr><td>项目名称</td><td>和拖延say拜拜</td></tr>
+            <tr><td>参赛赛事</td><td>中国国际大学生创新大赛（2026）</td></tr>
+            <tr><td>开发方式</td><td>AI辅助开发（Hermes Agent）</td></tr>
+            <tr><td>技术栈</td><td>HTML + CSS + JavaScript</td></tr>
+            <tr><td>总代码量</td><td>~55KB（不含文档和PPT）</td></tr>
+            <tr><td>开发耗时</td><td>约2.5小时</td></tr>
+        </table>
+    </div>
+
+    <!-- 立即体验 -->
+    <div class="card cta" id="try">
+        <h2>🎉 立即体验</h2>
+        <p style="margin-bottom:20px;color:#666;">点击下方按钮，打开App开始使用</p>
+        <a href="index.html">打开App →</a>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 和拖延say拜拜 · 中国国际大学生创新大赛参赛作品</p>
+    </div>
+
+</div>
+
+</body>
+</html>
