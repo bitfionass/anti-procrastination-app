@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>和拖延say拜拜</title>
+  <meta name="theme-color" content="#7C5CFC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 顶部宠物卡片 -->
+    <header class="hero-card" id="heroCard">
+      <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="pet-area">
+          <div class="pet-avatar" id="petAvatar">
+            <div class="pet-ring"></div>
+            <div class="pet-emoji" id="petFace">😊</div>
+            <div class="pet-badge" id="petLevel">Lv.1</div>
+          </div>
+          <div class="pet-info">
+            <div class="pet-name">小拖延</div>
+            <div class="pet-says" id="petSpeech">今天也要加油哦~</div>
+          </div>
+        </div>
+        <div class="pet-bars">
+          <div class="bar-row">
+            <span class="bar-icon">💖</span>
+            <div class="bar-track"><div class="bar-fill bar-mood" id="moodBar"></div></div>
+            <span class="bar-num" id="moodValue">80</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-icon">⭐</span>
+            <div class="bar-track"><div class="bar-fill bar-growth" id="growthBar"></div></div>
+            <span class="bar-num" id="growthValue">0/100</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 快捷模板 -->
+    <section class="templates-strip">
+      <div class="strip-scroll" id="templateScroll">
+        <button class="tpl-chip" data-template="论文"><span class="tpl-icon">📝</span>写论文</button>
+        <button class="tpl-chip" data-template="复习"><span class="tpl-icon">📚</span>复习考试</button>
+        <button class="tpl-chip" data-template="小组"><span class="tpl-icon">👥</span>小组作业</button>
+        <button class="tpl-chip" data-template="技能"><span class="tpl-icon">🎯</span>学新技能</button>
+        <button class="tpl-chip" data-template="整理"><span class="tpl-icon">🧹</span>整理收拾</button>
+      </div>
+    </section>
+
+    <!-- 任务输入 -->
+    <section class="input-card">
+      <div class="input-row">
+        <input type="text" id="taskInput" placeholder="写下你想完成的任务..." autocomplete="off" />
+        <button class="btn-go" id="btnDecompose">
+          <span class="btn-go-icon">✨</span>
+        </button>
+      </div>
+      <div class="difficulty-pills" id="diffPills">
+        <button class="pill active" data-diff="easy">简单</button>
+        <button class="pill" data-diff="medium">中等</button>
+        <button class="pill" data-diff="hard">困难</button>
+      </div>
+    </section>
+
+    <!-- 当前任务 -->
+    <section class="task-card" id="taskSection" style="display:none">
+      <div class="task-top">
+        <div class="task-title-row">
+          <span class="task-emoji">🎯</span>
+          <h2 id="currentTaskTitle"></h2>
+        </div>
+        <div class="progress-pill">
+          <div class="progress-ring-mini">
+            <svg viewBox="0 0 36 36">
+              <circle class="ring-bg" cx="18" cy="18" r="15.9"/>
+              <circle class="ring-fill" id="progressRing" cx="18" cy="18" r="15.9"/>
+            </svg>
+            <span class="ring-text" id="progressPct">0%</span>
+          </div>
+        </div>
+      </div>
+      <div class="steps-list" id="stepsList"></div>
+      <div class="task-bottom">
+        <div class="task-actions-left">
+          <button class="btn-ghost" id="btnEditSteps"><span>✏️</span>编辑</button>
+          <button class="btn-ghost" id="btnRedo"><span>🔄</span>重来</button>
+        </div>
+        <button class="btn-start" id="btnStart5min">
+          <span class="pulse-dot"></span>
+          先做5分钟
+        </button>
+      </div>
+    </section>
+
+    <!-- 统计条 -->
+    <section class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-num" id="statTotal">0</div>
+        <div class="stat-label">总完成</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-num" id="statStreak">0</div>
+        <div class="stat-label">连续天</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-num" id="statToday">0</div>
+        <div class="stat-label">今日</div>
+      </div>
+    </section>
+
+    <!-- 成就勋章 -->
+    <section class="badges-card">
+      <h3 class="section-title">🏆 成就勋章</h3>
+      <div class="badges-grid" id="badgesGrid"></div>
+    </section>
+
+    <!-- 历史任务 -->
+    <section class="history-card">
+      <h3 class="section-title">📋 历史任务</h3>
+      <div id="historyList">
+        <div class="empty-hint">还没有任务，快来试试吧~</div>
+      </div>
+    </section>
+
+    <!-- 底部留白 -->
+    <div class="bottom-spacer"></div>
+
+    <!-- ===== 弹窗：5分钟倒计时 ===== -->
+    <div class="overlay" id="timerModal">
+      <div class="sheet timer-sheet">
+        <div class="timer-visual">
+          <svg class="timer-svg" viewBox="0 0 200 200">
+            <circle class="timer-track" cx="100" cy="100" r="90"/>
+            <circle class="timer-bar" id="timerCircle" cx="100" cy="100" r="90"/>
+          </svg>
+          <div class="timer-center">
+            <div class="timer-digits" id="timerText">5:00</div>
+            <div class="timer-sub" id="timerHint">专注中...</div>
+          </div>
+        </div>
+        <div class="timer-quote" id="timerQuote">"先做5分钟，你就赢了"</div>
+        <div class="sheet-actions">
+          <button class="btn-cancel" id="btnTimerCancel">放弃</button>
+          <button class="btn-confirm" id="btnTimerContinue" style="display:none">继续专注 💪</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 弹窗：庆祝 ===== -->
+    <div class="overlay" id="celebrateModal">
+      <div class="sheet celebrate-sheet">
+        <div class="confetti" id="confetti"></div>
+        <div class="celebrate-big" id="celebrateIcon">🎉</div>
+        <h2 id="celebrateTitle">太棒了！</h2>
+        <p id="celebrateMsg"></p>
+        <div class="rewards-row" id="celebrateRewards"></div>
+        <button class="btn-confirm" id="btnCelebrateClose">好的！</button>
+      </div>
+    </div>
+
+    <!-- ===== 弹窗：编辑步骤 ===== -->
+    <div class="overlay" id="editModal">
+      <div class="sheet edit-sheet">
+        <h3>编辑步骤</h3>
+        <div id="editSteps" class="edit-steps-list"></div>
+        <button class="btn-add-step" id="btnAddStep">+ 添加步骤</button>
+        <div class="sheet-actions">
+          <button class="btn-cancel" id="btnEditCancel">取消</button>
+          <button class="btn-confirm" id="btnEditSave">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="mock-ai.js"></script>
+  <script src="pet.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
